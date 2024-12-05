@@ -33,11 +33,25 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+         
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/templatemo.css",
+              "src/assets/css/templatemo.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/templatemo.js",
+              "src/assets/js/custom.js"
+              
+            ]
           },
           "configurations": {
             "production": {
