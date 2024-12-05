@@ -1,6 +1,4 @@
 <<<<<<< HEAD
-# spletna-trgovina
-=======
 # RPO spletna trgovina
 
 Welcome to the Web Store Application! This is a user-friendly platform designed to provide a seamless shopping experience for customers. The application allows users to browse products, add items to their cart, and securely check out.
