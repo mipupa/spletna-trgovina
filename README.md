@@ -1,6 +1,5 @@
 <<<<<<< HEAD
 # spletna-trgovina
-spletna-trgovina
 =======
 # RPO spletna trgovina
 
@@ -52,7 +51,7 @@ Welcome to the Web Store Application! This is a user-friendly platform designed 
 
 ### Frontend:
 - HTML5, CSS3, JavaScript
-- Framework: [React.js/Angular/Vue.js] *(Choose one based on your stack)*
+- Framework: [Angular]
 
 ### Backend:
 - Language: [Node.js/Python/Django/Flask/Java] *(Choose one based on your stack)*
