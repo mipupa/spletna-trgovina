@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-}
+   countryCodeGB="gb";
+   countryCodeDE="de";
+   countryCodeSI="si";
+    
+   
+  }
