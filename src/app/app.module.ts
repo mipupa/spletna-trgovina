@@ -14,7 +14,11 @@ import { PoslovalniceComponent } from './poslovalnice/poslovalnice.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
-
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
     KontaktComponent,
     TrgovinaComponent,
     AboutComponent,
-    PoslovalniceComponent
+    PoslovalniceComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,  
     
   ],
   imports: [
@@ -33,7 +40,9 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
     HomeModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp({"projectId":"rpo-spletna-trgovina","appId":"1:676356888271:web:01d6a08b2fa5eda03bc9ba","storageBucket":"rpo-spletna-trgovina.firebasestorage.app","apiKey":"AIzaSyCAPwqWkHNqpPU6_gm5cGOADPCyhn9o0Wk","authDomain":"rpo-spletna-trgovina.firebaseapp.com","messagingSenderId":"676356888271","measurementId":"G-XST2720TW8"}),
+    AngularFireAuthModule,
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({"projectId":"rpo-spletna-trgovina","appId":"1:676356888271:web:01d6a08b2fa5eda03bc9ba","storageBucket":"rpo-spletna-trgovina.firebasestorage.app","apiKey":"AIzaSyCAPwqWkHNqpPU6_gm5cGOADPCyhn9o0Wk","authDomain":"rpo-spletna-trgovina.firebaseapp.com","messagingSenderId":"676356888271","measurementId":"G-XST2720TW8"})),
