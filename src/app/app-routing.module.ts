@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { PoslovalniceComponent } from './poslovalnice/poslovalnice.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "home", component: HomeComponent},
   {path: "trgovina", component:TrgovinaComponent},
   {path:"poslovalnice", component:PoslovalniceComponent},
