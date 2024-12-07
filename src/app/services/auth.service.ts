@@ -7,14 +7,16 @@ import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, switchMap, of, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
- 
+ import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public authToken: string = "";
   public isLogged : boolean = false;
-  
+  private authState = new Subject<boolean>();
+
   constructor(private http: HttpClient,private firestore : AngularFirestore, private fireauth: AngularFireAuth, private router: Router) {
     // Subscribe to changes in authentication state to update the currentUserUid
     this.fireauth.authState.subscribe((user) => {
@@ -74,12 +76,14 @@ export class AuthService {
 
   // sign out
   logout() {
-    this.fireauth.signOut().then( () => {
+    this.fireauth.signOut().then(() => {
+      this.authToken = ""; // Update authToken to empty string
       localStorage.removeItem('token');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }, err => {
       alert(err.message);
     })
+    console.log('AuthToken cleared from localStorage :', this.authToken);
   }
 
   // forgot password
@@ -129,6 +133,9 @@ export class AuthService {
         }
       })
     );
+  }
+  getAuthState(): Observable<boolean> {
+    return this.authState.asObservable();
   }
 
 }

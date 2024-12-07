@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,15 @@ export class HeaderComponent {
    countryCodeGB="gb";
    countryCodeDE="de";
    countryCodeSI="si";
-    
+   constructor( private auth : AuthService){}
+
+   get isLoggedIn():boolean
+   {
+     return this.auth.isLoggedIn();
+   }   
+   logout()
+   {
+     this.auth.logout();
+   } 
    
   }
