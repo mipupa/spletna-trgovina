@@ -15,7 +15,7 @@ export class CustomerProfileComponent {
     phone: '123-456-7890',
     address: '123 Main St, Anytown, USA'
   };
-  userData: UserData = {uid : '',name: '', phoneNumber: '', email: ''}
+  userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: ''};
   constructor(
     private auth: AuthService,
     private userService: UserDataService,

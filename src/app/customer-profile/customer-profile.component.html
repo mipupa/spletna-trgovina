@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-6">
                     <label class="labels">Surname</label>
-                    <input type="text" class="form-control" placeholder="surname">
+                    <input type="text" class="form-control" placeholder="surname" [(ngModel)]="userData.surname">
                 </div>
             </div>
             <div class="row mt-3">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-12">
                     <label class="labels">Address</label>
-                    <input type="text" class="form-control" placeholder="enter address">
+                    <input type="text" class="form-control" placeholder="enter address"  [(ngModel)]="userData.address">
                 </div>
                 <div class="col-md-12">
                     <label class="labels">Postcode</label>

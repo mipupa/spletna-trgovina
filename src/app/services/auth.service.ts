@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   // register method
-  register(email : string, password : string, name:string, phoneNumber: string){
+  register(email : string, password : string, name:string, phoneNumber: string, address: string, surname: string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then( res => {
       const userUid = res.user?.uid;
       const userData = {
@@ -62,9 +62,9 @@ export class AuthService {
         email: email,
         name: name,
         phoneNumber: phoneNumber,
-        // Add more fields as needed
-      };
-      this.firestore.collection('users').doc(userUid).set(userData)
+        address: address,
+        surname: surname};
+      this.firestore.collection('User').doc(userUid).set(userData)
       alert('Registration Successful');
       this.sendEmailForVarification(res.user);
       this.router.navigate(['/login']);
@@ -126,7 +126,7 @@ export class AuthService {
       switchMap((user) => {
         if (user) {
           // User is authenticated, query Firestore using the UID
-          return this.firestore.collection('users').doc(uid).get();
+          return this.firestore.collection('User').doc(uid).get();
         } else {
           // User is not authenticated, return an empty object or handle accordingly
           return of();

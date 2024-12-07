@@ -22,17 +22,17 @@ export class UserDataService {
 
   addUsers(service: UserData)
   {
-    return this.afs.collection('/users').add(service);
+    return this.afs.collection('/User').add(service);
   }
 
   getAllUsers()
   {
-    return this.afs.collection('/users').snapshotChanges();
+    return this.afs.collection('/User').snapshotChanges();
   }
 
   deleteUsers(service: UserData)
   {
-    return this.afs.doc('/users/' + service.uid).delete();
+    return this.afs.doc('/User/' + service.uid).delete();
   }
 
   updateService(service: UserData)
@@ -43,18 +43,18 @@ export class UserDataService {
 
   getToken(user :UserData)
   {
-    return this.afs.doc('/users/' + user.uid)
+    return this.afs.doc('/User/' + user.uid)
   }
 
   getUserData(uid: string): Observable<any> {
-    return this.firestore.collection('users').doc(uid).get();
+    return this.firestore.collection('User').doc(uid).get();
   }
   updateUserProfile(userData: any) {
     return this.afAuth.user.pipe(
       take(1),
       switchMap(user => {
         if (user) {
-          return from(this.afs.collection('users').doc(user.uid).update(userData));
+          return from(this.afs.collection('User').doc(user.uid).update(userData));
         } else {
           throw new Error('User not logged in');
         }
