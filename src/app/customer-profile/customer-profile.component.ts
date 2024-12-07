@@ -9,12 +9,7 @@ import { UserDataService } from '../services/user-data.service';
   styleUrl: './customer-profile.component.css'
 })
 export class CustomerProfileComponent {
-  customer = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '123-456-7890',
-    address: '123 Main St, Anytown, USA'
-  };
+
   userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: ''};
   constructor(
     private auth: AuthService,
@@ -40,6 +35,19 @@ export class CustomerProfileComponent {
   {
     return this.auth.isLoggedIn()
   }
+// ngOnInit(): void {
+//   this.userService.getUserData(this.auth.authToken).subscribe((userData) => {
+//     if (this.auth.authToken && userData.exists) {
+//       this.userData = userData.data() as UserData; 
+//       console.log(this.userData);
+//       console.log(this.auth.authToken);
+//       console.log(this.userData.name);
+//       console.log("Observable subscription deluje!");
+//     } else {
+//       console.log('User data not found');
+//     }
+//   });
+// }
 
   saveProfile() {
     this.userService.updateUserProfile(this.userData).subscribe(() => {
