@@ -19,6 +19,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     PoslovalniceComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent,  
+    ForgotPasswordComponent,
+    CustomerProfileComponent,  
     
   ],
   imports: [

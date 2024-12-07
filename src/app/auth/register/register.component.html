@@ -38,11 +38,29 @@
                           <div class="form-floating">
                             <input type="username" 
                             class="form-control" 
-                            id="floatingInput3" 
+                            id="floatingInput2" 
                             placeholder="Username"
+                            name="email"
+                            [(ngModel)]="surname">
+                            <label for="floatingInput">Surname</label>
+                          </div>
+                          <div class="form-floating">
+                            <input type="username" 
+                            class="form-control" 
+                            id="floatingInput3" 
+                            placeholder="Phone number"
                             name="email"
                             [(ngModel)]="phoneNumber">
                             <label for="floatingInput">Phone number</label>
+                          </div>
+                          <div class="form-floating">
+                            <input type="address" 
+                            class="form-control" 
+                            id="floatingInput3" 
+                            placeholder="Address"
+                            name="address"
+                            [(ngModel)]="address">
+                            <label for="floatingInput">Address</label>
                           </div>
                         <hr/>
                             <button class="w-100 btn btn-lg btn-primary" 

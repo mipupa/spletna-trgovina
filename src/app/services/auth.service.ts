@@ -7,14 +7,16 @@ import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, switchMap, of, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
- 
+ import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public authToken: string = "";
   public isLogged : boolean = false;
-  
+  private authState = new Subject<boolean>();
+
   constructor(private http: HttpClient,private firestore : AngularFirestore, private fireauth: AngularFireAuth, private router: Router) {
     // Subscribe to changes in authentication state to update the currentUserUid
     this.fireauth.authState.subscribe((user) => {
@@ -52,7 +54,7 @@ export class AuthService {
   }
 
   // register method
-  register(email : string, password : string, name:string, phoneNumber: string){
+  register(email : string, password : string, name:string, phoneNumber: string, address: string, surname: string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then( res => {
       const userUid = res.user?.uid;
       const userData = {
@@ -60,9 +62,9 @@ export class AuthService {
         email: email,
         name: name,
         phoneNumber: phoneNumber,
-        // Add more fields as needed
-      };
-      this.firestore.collection('users').doc(userUid).set(userData)
+        address: address,
+        surname: surname};
+      this.firestore.collection('User').doc(userUid).set(userData)
       alert('Registration Successful');
       this.sendEmailForVarification(res.user);
       this.router.navigate(['/login']);
@@ -74,12 +76,14 @@ export class AuthService {
 
   // sign out
   logout() {
-    this.fireauth.signOut().then( () => {
+    this.fireauth.signOut().then(() => {
+      this.authToken = ""; // Update authToken to empty string
       localStorage.removeItem('token');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }, err => {
       alert(err.message);
     })
+    console.log('AuthToken cleared from localStorage :', this.authToken);
   }
 
   // forgot password
@@ -122,13 +126,16 @@ export class AuthService {
       switchMap((user) => {
         if (user) {
           // User is authenticated, query Firestore using the UID
-          return this.firestore.collection('users').doc(uid).get();
+          return this.firestore.collection('User').doc(uid).get();
         } else {
           // User is not authenticated, return an empty object or handle accordingly
           return of();
         }
       })
     );
+  }
+  getAuthState(): Observable<boolean> {
+    return this.authState.asObservable();
   }
 
 }

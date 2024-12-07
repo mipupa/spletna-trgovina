@@ -12,6 +12,8 @@ export class RegisterComponent implements OnInit {
   email : string = '';
   password : string = '';
   name : string = '';
+  surname : string = '';
+  address : string = '';
   phoneNumber : string = '';
 
 
@@ -32,7 +34,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.auth.register(this.email,this.password, this.name, this.phoneNumber);
+    this.auth.register(this.email,this.password, this.name, this.phoneNumber, this.address, this.surname);
     
     this.email = '';
     this.password = '';
