@@ -26,7 +26,8 @@ Payment Gateway: []
 Prerequisites
 Node.js (if using JavaScript-based backend)
 Git
-A database management tool like PostgreSQL/MySQL Workbench or a MongoDB client.
+Google FireBase Account & Database
+
 Steps to Set Up Locally# rpo_spletna_trgovina
 
 Welcome to the Web Store Application! This is a user-friendly platform designed to provide a seamless shopping experience for customers. The application allows users to browse products, add items to their cart, and securely check out.
