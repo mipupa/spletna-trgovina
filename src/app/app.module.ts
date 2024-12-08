@@ -21,6 +21,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    CustomerProfileComponent,  
+    CustomerProfileComponent,
+    ProductDetailsComponent,  
     
   ],
   imports: [

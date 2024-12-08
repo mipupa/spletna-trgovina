@@ -3,6 +3,7 @@ import { AppModule } from './app/app.module';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
+
 platformBrowserDynamic().bootstrapModule(AppModule)
 
 /* Dodajanje poslovalnic
@@ -49,4 +50,5 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   .catch(err => console.error(err));
 
-  
+
+

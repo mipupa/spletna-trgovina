@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PoslovalniceService, Poslovalnica } from '../services/poslovalnice.service';
-
-
+import { PoslovalniceService} from '../services/poslovalnice.service';
 
 @Component({
   selector: 'app-poslovalnice',
