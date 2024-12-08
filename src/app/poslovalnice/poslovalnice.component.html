@@ -1,1 +1,65 @@
-<p>poslovalnice works!</p>
+<!-- Open Content -->
+<section class="bg-light">
+  <div class="container pb-5">
+    <div class="row" *ngFor="let poslovalnica of poslovalnice">
+      <div class="col-lg-5 mt-5">
+        <div class="card mb-3">
+          <div id="map">
+            <google-map [options]="mapOptions" height="250px" width="auto">
+              <map-marker
+                *ngFor="let marker of markers"
+                [position]="marker.position">
+              </map-marker>
+            </google-map>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div>
+
+      <div class="col-lg-7 mt-5">
+        <div class="card">
+          <div class="card-body">
+               <h1 class="h2">{{poslovalnica.name}}</h1>
+            
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <h6>Naslov:</h6>
+              </li>
+              <li class="list-inline-item">
+                <p class="text-muted"><strong>{{poslovalnica.address}} </strong></p>
+              </li>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h6>Vodja:</h6>
+                  </li>
+                  <li class="list-inline-item">
+                    <p class="text-muted"><strong>{{poslovalnica.manager}}</strong></p>
+                  </li>
+              </ul>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h6>Kontakt:</h6>
+                  </li>
+                  <li class="list-inline-item">
+                    <p class="text-muted"><strong>{{poslovalnica.contact}}</strong></p>
+                  </li>
+              </ul>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h6>Odpiralni čas:</h6>
+                  </li>
+                  <li class="list-inline-item">
+                    <p class="text-muted"><strong>{{poslovalnica.working_hours}}</strong></p>
+                  </li>
+              </ul>
+             
+            </ul>
+           <img src="{{poslovalnica.img_url}}" class="card-img-top">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Close Content -->
