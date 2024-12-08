@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { first, switchMap } from 'rxjs';
 
 export interface Poslovalnica {
   id: string;
@@ -27,6 +28,7 @@ export class PoslovalniceService {
     return this.afs.collection<Poslovalnica>(this.collectionName).valueChanges();
   }
 
+  //dodaj novo poslovalnico
   addPoslovalnica(poslovalnica: Omit<Poslovalnica, 'id'>): Promise<void> {
     const id = this.afs.createId(); // Ustvari unikaten ID
     return this.afs
@@ -34,7 +36,21 @@ export class PoslovalniceService {
       .doc(id)
       .set({ ...poslovalnica, id }); // Dodaj podatke skupaj z ID-jem
   }
+
+  //shrani v izbran collection in izbran document
+  saveDataToDocument(collectionName: string, documentId: string, data: any): Observable<void> {
+    return new Observable<void>((observer) => {
+      this.afs
+        .collection(collectionName)
+        .doc(documentId)
+        .set(data)
+        .then(() => {
+          observer.next();
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+        });
+    });
+  }
 }
-
-  
-

@@ -1,65 +1,81 @@
-<!-- Open Content -->
 <section class="bg-light">
-  <div class="container pb-5">
-    <div class="row" *ngFor="let poslovalnica of poslovalnice">
-      <div class="col-lg-5 mt-5">
-        <div class="card mb-3">
-          <div id="map">
-            <google-map [options]="mapOptions" height="250px" width="auto">
-              <map-marker
-                *ngFor="let marker of markers"
-                [position]="marker.position">
-              </map-marker>
-            </google-map>
+  <div class="container py-5">
+      <div class="row text-center py-3">
+          <div class="col-lg-6 m-auto">
+              <h1 class="h1">Naše lokacije</h1>
+              <p>
+              Preverite kje nas lahko najdete v Sloveniji!
+              </p>
           </div>
-        </div>
-        <div class="row"></div>
       </div>
+      <div class="row">
+          <div class="col-12 col-md-4 mb-4" *ngFor="let poslovalnica of poslovalnice; let i = index">
+              <div class="card h-100">
+                  
+                      <img src="{{poslovalnica.img_url}}" class="card-img-top" alt="{{poslovalnica.name}}">
+                  
+                  <div class="card-body">
+                      <ul class="list-unstyled d-flex justify-content-between">
+                        {{ poslovalnica.address }}
+                          
+                      </ul>
+                      <strong><a class="h3 text-decoration-none text-dark">{{poslovalnica.name}}</a></strong>
+                      <p class="card-text"></p>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <h6>Vodja:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                          <p class="text-muted">
+                            <strong>{{ poslovalnica.manager }}</strong>
+                          </p>
+                        </li>
+                      </ul>
 
-      <div class="col-lg-7 mt-5">
-        <div class="card">
-          <div class="card-body">
-               <h1 class="h2">{{poslovalnica.name}}</h1>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <h6>Kontakt:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                          <p class="text-muted">
+                            <strong>{{ poslovalnica.contact }}</strong>
+                          </p>
+                        </li>
+                      </ul>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <h6>Odpiralni čas:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                          <p class="text-muted">
+                            <strong>{{ poslovalnica.working_hours }}</strong>
+                          </p>
+                        </li>
+                      </ul>
+          
+          
+                      <google-map
+                      [height]="'200px'"
+                      [width]="'100%'"
+                      [zoom]="zoom"
+                      [center]="{
+                        lat: poslovalnica.loc_lat,
+                        lng: poslovalnica.loc_lng
+                      }"
+                    >
+                      <map-marker
+                        [position]="{
+                          lat: poslovalnica.loc_lat,
+                          lng: poslovalnica.loc_lng
+                        }"
+                      >
+                      </map-marker>
+                    </google-map>
             
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <h6>Naslov:</h6>
-              </li>
-              <li class="list-inline-item">
-                <p class="text-muted"><strong>{{poslovalnica.address}} </strong></p>
-              </li>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                    <h6>Vodja:</h6>
-                  </li>
-                  <li class="list-inline-item">
-                    <p class="text-muted"><strong>{{poslovalnica.manager}}</strong></p>
-                  </li>
-              </ul>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                    <h6>Kontakt:</h6>
-                  </li>
-                  <li class="list-inline-item">
-                    <p class="text-muted"><strong>{{poslovalnica.contact}}</strong></p>
-                  </li>
-              </ul>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                    <h6>Odpiralni čas:</h6>
-                  </li>
-                  <li class="list-inline-item">
-                    <p class="text-muted"><strong>{{poslovalnica.working_hours}}</strong></p>
-                  </li>
-              </ul>
-             
-            </ul>
-           <img src="{{poslovalnica.img_url}}" class="card-img-top">
-            
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+         
+              </div>
+          </div>
 </section>
-<!-- Close Content -->

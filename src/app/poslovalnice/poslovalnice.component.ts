@@ -1,17 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
+import { Component, OnInit } from '@angular/core';
+
 import { PoslovalniceService, Poslovalnica } from '../services/poslovalnice.service';
-import { last } from 'rxjs';
 
-
-
-interface MarkerProperties {
-  position: {
-    lat: number;
-    lng: number;
-  };
-    title: string;
-};
 
 
 @Component({
@@ -21,52 +11,61 @@ interface MarkerProperties {
 })
 export class PoslovalniceComponent implements OnInit {
 
-  poslovalnice: Poslovalnica[] = [];
-  
-  markers: { position: google.maps.LatLngLiteral; title: string }[] = []; // Določimo pravilen tip za position
+  ngOnInit() {
+    this.pridobiPoslovalnice();
+    this.saveData();
+  }
+
+
+
+  poslovalnice: any[] = [];  // Seznam poslovalnic
+  zoom: number = 15;  // Začetni nivo povečave
+  marker: any;  // En marker za posamezno poslovalnico
 
   constructor(private poslovalniceService: PoslovalniceService) {}
-
-  ngOnInit(): void {
-    this.pridobiPoslovalnice();
-    
-  }
 
   pridobiPoslovalnice(): void {
     this.poslovalniceService.getBranches().subscribe({
       next: (data) => {
-        this.poslovalnice = data; // Shrani celoten seznam
-       // Pretvori podatke poslovalnic v markerje
-       const noviMarkerji = data.map((poslovalnica) => ({
-        position: {
-          lat: poslovalnica.loc_lat, 
-          lng: poslovalnica.loc_lng, 
-        },
-        title: poslovalnica.name,
-      }));
+        console.log('Pridobljene poslovalnice:', data);
+        this.poslovalnice = data;
+        this.postaviMarkerje();  // Nastavimo marker za prvo poslovalnico
+      },
+      error: (err) => {
+        console.error('Napaka pri pridobivanju poslovalnic:', err);
+      },
+    });
+  }
 
-      
-
-      // Dodaj nove markerje v seznam
-      this.markers = [...this.markers, ...noviMarkerji];
-      console.log('Vsi markerji:', this.markers);
-    },
-    error: (err) => {
-      console.error('Napaka pri pridobivanju poslovalnic:', err);
+  postaviMarkerje(): void {
+    // Ustvarimo marker za prvo poslovalnico, ki ga bomo prikazali na zemljevidu
+    if (this.poslovalnice.length > 0) {
+      const prviPoslovalnica = this.poslovalnice[0];  // Lahko spremenite, če želite drugačno poslovalnico
+      this.marker = {
+        position: { lat: prviPoslovalnica.loc_lat, lng: prviPoslovalnica.loc_lng },
+        title: prviPoslovalnica.name
+      };
     }
-  });
+  }
+
+  
+  saveData() {
+    const collectionName = '';
+    const documentId = '';
+    const data = {
+      name: 'John Doe',
+      age: 30,
+      profession: 'Developer'
+    };
+
+    this.poslovalniceService.saveDataToDocument(collectionName, documentId, data).subscribe({
+      next: () => {
+        console.log('Data saved successfully!');
+      },
+      error: (error) => {
+        console.error('Error saving data:', error);
+      }
+    });
+  }
 }
 
-
-
-  @ViewChild('myGoogleMap', { static: true }) map!: GoogleMap;
-
-    mapOptions: google.maps.MapOptions = {
-    center: { lat: 46.04585 , lng: 14.50303 },
-    zoom: 14,
-    mapTypeControlOptions: {
-    mapTypeIds: ["roadmap"],
-    },
-  };
-
-}
