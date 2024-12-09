@@ -9,6 +9,7 @@ import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
+
   product: any = null;
   categoryId: number | null = null;
   productId: number | null = null;

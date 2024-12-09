@@ -11,6 +11,10 @@ import { Product } from '../model/product';
 })
 export class TrgovinaComponent implements OnInit {
 
+    //Trenutna stran in število produktov na stran
+    currentPage = 1;
+    itemsPerPage = 6;
+
   constructor(private categoryService:CategoryService, private productService:ProductService) {}
   categories: Category[] = [];
   products: Product[] = [];

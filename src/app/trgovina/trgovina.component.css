@@ -11,3 +11,35 @@
     object-fit: contain;
     text-align: center;
 }
+
+.pagination {
+    margin: 20px 0;
+  }
+  
+  .pagination-controls .ngx-pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .pagination-controls .ngx-pagination li {
+    margin: 0 2px;
+  }
+  
+  .pagination-controls .ngx-pagination li a {
+    color: #129317;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
+  
+  .pagination-controls .ngx-pagination li.active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .pagination-controls .ngx-pagination li a:hover {
+    background-color: #e9ecef;
+  }
