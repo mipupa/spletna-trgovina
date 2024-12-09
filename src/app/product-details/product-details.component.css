@@ -1,0 +1,15 @@
+.img-fluid {
+    width: 700px;
+    height: 400px;
+    display: inline-block; /*omogči prilagoditev velikosti*/
+    object-fit: contain;
+    text-align: center;
+}
+
+#col {
+
+  d-grid {
+
+    text-align:center;
+}
+}
