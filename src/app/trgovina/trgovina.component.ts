@@ -30,9 +30,14 @@ export class TrgovinaComponent implements OnInit {
     this.productService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
     })
-    
-    
-  
-  };
+   };
+   
+  //funkcija za formatiranje cene iz FireBase namreč prileti number
+  formatCurrency(value: number, locale: string='sl-SI', currency: string = 'EUR'):string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currency,
+    }).format(value);
+  }
 
 }

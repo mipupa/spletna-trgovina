@@ -13,6 +13,14 @@ export class ProductDetailsComponent {
   categoryId: number | null = null;
   productId: number | null = null;
 
+  //funkcija za formatiranje cene iz FireBase namreč prileti number
+  formatCurrency(value: number, locale: string='sl-SI', currency: string = 'EUR'):string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currency,
+    }).format(value);
+  }
+
   constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
   /*ngOnInit(): void {
@@ -70,5 +78,7 @@ export class ProductDetailsComponent {
         console.error('Napaka pri pridobivanju produkta:', error);
       }
     }
+
+       
   }
 
