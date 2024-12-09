@@ -23,6 +23,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RegisterComponent,
     ForgotPasswordComponent,
     CustomerProfileComponent,
-    ProductDetailsComponent,  
+    ProductDetailsComponent,
+    PreteklaNarocilaComponent,  
     
   ],
   imports: [
