@@ -12,7 +12,7 @@ import { Product } from '../model/product';
 export class TrgovinaComponent implements OnInit {
 
     //Trenutna stran in število produktov na stran
-    currentPage = 1;
+    currentPage = 0;
     itemsPerPage = 6;
 
   constructor(private categoryService:CategoryService, private productService:ProductService) {}
@@ -44,4 +44,9 @@ export class TrgovinaComponent implements OnInit {
     }).format(value);
   }
 
+//vedno scrollaj na vrh pri kliku na drugo stran  
+onPageChange(page: number) {
+  this.currentPage= page;
+  window.scrollTo({top:0, behavior:'smooth'});
+ }
 }

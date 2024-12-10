@@ -12,34 +12,26 @@
     text-align: center;
 }
 
-.pagination {
-    margin: 20px 0;
-  }
+/* background at the number*/
+.pagination-spreads::ng-deep li {
+  background-color: #20c997;
+  font-family: 'Roboto', sans-serif !important;
+  color:aliceblue
   
-  .pagination-controls .ngx-pagination {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .pagination-controls .ngx-pagination li {
-    margin: 0 2px;
-  }
-  
-  .pagination-controls .ngx-pagination li a {
-    color: #129317;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-  }
-  
-  .pagination-controls .ngx-pagination li.active a {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
-  }
-  
-  .pagination-controls .ngx-pagination li a:hover {
-    background-color: #e9ecef;
-  }
+ }
+
+/* hide the previus when at number 1. with ::before */
+.pagination-spreads::ng-deep ul > li.disabled {
+  display: none !important;
+}
+
+/* deactivated numbers will be grayed out */
+.pagination-spreads::ng-deep ul > li:not(.active) > a {
+  background-color: rgb(255, 255, 255) !important;
+  border-color: black !important;
+  color: #363333;
+}
+.pagination-spreads::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+ background: #20c997 !important;
+ border-radius: 3px !important;
+}

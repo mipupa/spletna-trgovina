@@ -74,18 +74,16 @@
      
      <!--Pagination-->
       
-     <div div="row">
-        <ul class="pagination pagination-lg justify-content-end">
-          <pagination-controls (pageChange)="currentPage = $event" previousLabel="&laquo;" nextLabel="&raquo;"
+     <div class="row">
+              
+     <pagination-controls (pageChange)="onPageChange($event)" previousLabel="Nazaj" nextLabel="Naprej" 
           [directionLinks]="false"
           [autoHide]="true"
-          [maxSize]="8">
-          <li class="page-item disabled">
-            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
-          </li>
-        </pagination-controls>       
-        </ul>
-      </div>
+          [maxSize]="10"
+          class="pagination-spreads">
+        </pagination-controls>     
+    
+    </div>
 
      <!--Pagination END--> 
      
