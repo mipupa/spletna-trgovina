@@ -7,6 +7,7 @@ export interface Product {
     warranty: string;
     specification: string;
     manufacturer_url: string;
-    img_url:string;
+    img_url: string;
+    inStock: boolean;
     
   }
