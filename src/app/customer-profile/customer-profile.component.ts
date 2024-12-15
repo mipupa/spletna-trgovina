@@ -10,7 +10,7 @@ import { UserDataService } from '../services/user-data.service';
 })
 export class CustomerProfileComponent {
 
-  userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: ''};
+  userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: '', postalCode : '', country : '', city: ''};
   constructor(
     private auth: AuthService,
     private userService: UserDataService,

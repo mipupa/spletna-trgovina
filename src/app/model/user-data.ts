@@ -5,8 +5,12 @@ export class UserData {
     email:string = '';
     address:string = '';
     surname:string = '';
+    postalCode:string = '';
+    country:string = '';
+    city:string = '';
 
 
 
-    constructor(email :string,name: string, phoneNumbe:string,uid :string,address :string, szurname :string){}
+
+    constructor(email :string,name: string, phoneNumbe:string,uid :string,address :string, surname :string, postalCode :string, country :string, city :string){}
 }

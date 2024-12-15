@@ -9,7 +9,7 @@ import { UserDataService } from '../services/user-data.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: ''};
+  userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: '', postalCode : '', country : '', city: ''};
 
   constructor(
     private auth: AuthService,
