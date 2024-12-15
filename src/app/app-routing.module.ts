@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path : 'register', component: RegisterComponent},
   {path : 'forgot-password', component: ForgotPasswordComponent},
   {path : 'profile', component: CustomerProfileComponent},
+  {path: 'product-details/:CategoryID/:ProductID', component: ProductDetailsComponent},
 
   
 ];

@@ -1,5 +1,12 @@
 .h2 {
 
     color:rgb(37, 41, 41);
-    font-weight: 400;
+    font-weight: 300;
+}
+
+.carousel-item {
+
+    height: 200px;
+
+    
 }
