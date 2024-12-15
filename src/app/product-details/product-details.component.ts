@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
+import { KosaricaService } from '../services/kosarica.service';
 
 @Component({
   selector: 'app-product-details',
@@ -22,7 +23,7 @@ export class ProductDetailsComponent {
     }).format(value);
   }
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
 
   /*ngOnInit(): void {
     // Pridobi `productId` iz URL-ja
@@ -80,6 +81,8 @@ export class ProductDetailsComponent {
       }
     }
 
-       
+    addProductToCart(productId: number): void {
+      this.kosaricaService.addProductToCart(productId);
+    }  
   }
 

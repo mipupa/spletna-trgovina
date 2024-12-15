@@ -24,6 +24,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila.component';
+import { KosaricaComponent } from './kosarica/kosarica.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila
     ForgotPasswordComponent,
     CustomerProfileComponent,
     ProductDetailsComponent,
-    PreteklaNarocilaComponent,  
+    PreteklaNarocilaComponent,
+    KosaricaComponent,  
     
   ],
   imports: [
