@@ -2,3 +2,14 @@ img {
     height: 200px;
     width: 100%;
 }
+
+.text-dark {   
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+.text-muted {
+     font-size: 16px;
+}

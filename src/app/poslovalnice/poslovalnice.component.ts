@@ -8,16 +8,15 @@ import { PoslovalniceService} from '../services/poslovalnice.service';
 })
 export class PoslovalniceComponent implements OnInit {
 
-  ngOnInit() {
-    this.pridobiPoslovalnice();
-    this.saveData();
-  }
-
-
-
   poslovalnice: any[] = [];  // Seznam poslovalnic
   zoom: number = 15;  // Začetni nivo povečave
   marker: any;  // En marker za posamezno poslovalnico
+  notifications: {[key: number]: any[] } = {}; //za obvestila poslovalnic
+
+  ngOnInit() {
+    this.pridobiPoslovalnice();
+    
+  }
 
   constructor(private poslovalniceService: PoslovalniceService) {}
 
@@ -26,16 +25,27 @@ export class PoslovalniceComponent implements OnInit {
       next: (data) => {
         console.log('Pridobljene poslovalnice:', data);
         this.poslovalnice = data;
+        this.getNotifications(); //pridobi obvestila za posamezno poslovalnico
         this.postaviMarkerje();  // Nastavimo marker za prvo poslovalnico
       },
       error: (err) => {
         console.error('Napaka pri pridobivanju poslovalnic:', err);
       },
     });
+    
+  }
+
+  getNotifications():void {
+    this.poslovalnice.forEach((Branch) => {
+      this.poslovalniceService.getNotificationsByBranch(Branch.BranchID).subscribe((notifications)=> {
+        this.notifications[Branch.BranchID] = notifications;
+        //console.log('Pridobljena obvestila:', notifications);
+      } )
+    })
   }
 
   postaviMarkerje(): void {
-    // Ustvarimo marker za prvo poslovalnico, ki ga bomo prikazali na zemljevidu
+    // Ustvarim marker za prvo poslovalnico, ki ga bom prikazal na zemljevidu
     if (this.poslovalnice.length > 0) {
       const prviPoslovalnica = this.poslovalnice[0];  // Lahko spremenite, če želite drugačno poslovalnico
       this.marker = {
@@ -45,24 +55,7 @@ export class PoslovalniceComponent implements OnInit {
     }
   }
 
-  
-  saveData() {
-    const collectionName = '';
-    const documentId = '';
-    const data = {
-      name: 'John Doe',
-      age: 30,
-      profession: 'Developer'
-    };
+ 
 
-    this.poslovalniceService.saveDataToDocument(collectionName, documentId, data).subscribe({
-      next: () => {
-        console.log('Data saved successfully!');
-      },
-      error: (error) => {
-        console.error('Error saving data:', error);
-      }
-    });
-  }
 }
 

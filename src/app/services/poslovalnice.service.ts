@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Timestamp } from 'rxjs';
 
 
 export interface Poslovalnica {
@@ -14,6 +14,8 @@ export interface Poslovalnica {
   name: string;
   working_hours: string;
 }
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +54,12 @@ export class PoslovalniceService {
           observer.error(error);
         });
     });
+  }
+
+  getNotificationsByBranch(branchId: number): Observable<any[]> {
+    return this.afs
+    .collection('Notification', (ref) => ref.where('BranchID','==', branchId))
+    .valueChanges({idField: 'NotificationID'});
+    
   }
 }
