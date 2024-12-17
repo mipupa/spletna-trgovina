@@ -16,13 +16,18 @@
     <div class="col-lg-9">
       <div class="row">
         <div class="col-md-6">
-          <ul class="list-inline shop-top-menu pb-3 pt-1"></ul>
+          <div class="input-group mb-2">
+            <input type="text" [(ngModel)]="searchTerm" (input)="onInputSearch()" class="form-control" placeholder="Išči izdelek">
+            
         </div>
-        <div class="col-md-6 pb-4">
+          
+          
+       </div>
+        <div class="col-md-6 pb-4">       
           <div class="d-flex">
 
-            <select #sortSelect (change)="onSortChange(sortSelect.value)" class="form-control" id="filter">
-              <option value="" disabled selected>Izberi filter</option>
+            <select #sortSelect (input)="onSortChange(sortSelect.value)" class="form-control" id="filter">
+              <option value="" disabled selected>Filter...</option>
               <option value="asc">Cena naraščajoče</option>
               <option value="desc">Cena padajoče</option>
               <option value="nameAsc">A-Z</option>

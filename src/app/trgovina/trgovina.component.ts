@@ -3,6 +3,8 @@ import { CategoryService } from '../services/category.service';
 import { Category } from '../model/category';
 import { ProductService } from '../services/product.service';
 import { Product } from '../model/product';
+import { SearchService } from '../services/search.service';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-trgovina',
@@ -14,18 +16,16 @@ export class TrgovinaComponent implements OnInit {
   currentPage = 0;
   itemsPerPage = 6;
   sortOrder: string | null = null; //ni nastavljen privzeti filter
+  searchTerm: string ='';
 
-  constructor(
-    private categoryService: CategoryService,
-    private productService: ProductService
-  ) { }
+  constructor(private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService  ) { }
 
   categories: Category[] = [];
   products: Product[] = [];
   filteredProducts: Product[] = [];
   paginatedProducts: Product[] = [];
 
-  ngOnInit() {
+  ngOnInit():void {
     //metoda samo za prvo kreiranje kategorij
     //this.categoryService.addCategories();
 
@@ -41,7 +41,21 @@ export class TrgovinaComponent implements OnInit {
       this.filteredProducts = [...this.products];
       this.applyFilters();
     });
+    this.filterProducts();   
   }
+
+   onInputSearch():void { 
+    this.applyFilters();   
+    this.filterProducts();    
+   }
+    
+
+    private filterProducts(): void {
+    const lowerCaseTerm = this.searchTerm.toLowerCase();
+    this.filteredProducts=this.products.filter((product) =>
+    product.name.toLowerCase().includes(lowerCaseTerm));
+    }
+  
 
   //funkcija za formatiranje cene iz FireBase namreč prileti number
   formatCurrency(
@@ -68,6 +82,7 @@ export class TrgovinaComponent implements OnInit {
   applyFilters(): void {
     //vedno začni z celotnim seznamom produktov za pravilno filtriranje produktov
     this.filteredProducts = [...this.products];
+    
 
     if (this.sortOrder === 'asc') {
       this.filteredProducts.sort((a, b) => a.price - b.price); // Cena naraščajoče
