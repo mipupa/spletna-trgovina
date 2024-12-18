@@ -4,9 +4,7 @@
     font-weight: 300;
 }
 
-.carousel-item {
-
-    height: 200px;
-
+.bg-light .container  {
     
+     margin-bottom: -100px;
 }

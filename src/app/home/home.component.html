@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-lg-6 order-lg-last">
-                        <img class="d-block w-100" src="assets/img/logo.png" alt="">
+                        <img class="d-block w-100" src="assets/img/logo.png" alt="logo">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
@@ -30,7 +30,9 @@
 
 <!-- Izpostavljene kategorije -->
 
-<section class="container py-5">
+
+    <section class="bg-light">
+        <div class="container py-5">
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
             <h1 class="h1">Kategorije meseca</h1>
@@ -43,21 +45,22 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+            <a href=""><img src="assets/img/category_img_01.jpg" alt="Smuči" class="rounded-circle img-fluid border"></a>
             <h5 class="text-center mt-3 mb-3">Smuči</h5>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-            <h2 class="h5 text-center mt-3 mb-3">Smučarski čevlji</h2>
+            <a href=""><img src="assets/img/category_img_02.jpg" alt="Smučarski čevlji" class="rounded-circle img-fluid border"></a>
+            <h5 class="text-center mt-3 mb-3">Smučarski čevlji</h5>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-            <h2 class="h5 text-center mt-3 mb-3">Dodatna oprema</h2>
+            <a href=""><img src="assets/img/category_img_03.jpg" alt="Dodatna oprema" class="rounded-circle img-fluid border"></a>
+            <h5 class="text-center mt-3 mb-3">Dodatna oprema</h5>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
     </div>
+        </div>
 </section>
 
 <!-- Izpostavljeni izdelki -->
@@ -75,7 +78,7 @@
         <div class="row">
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="">
+                    <a href="" [routerLink]="['/trgovina']" aria-label="trgovina">
                         <img src="assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -87,11 +90,11 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$240.00</li>
+                            <li class="text-muted text-right">{{240.00 | currency: 'EUR'}}</li>
                         </ul>
                         <a href="" class="h2 text-decoration-none text-dark">Nordica Speedmachine 3</a>
                         <p class="card-text">
-                            No matter the terrain or the conditions, Nordica's all-new Speedmachine 3 120 unlocks everything the mountains have to offer.
+                            Ne glede na teren ali pogoje, popolnoma nova Nordica Speedmachine 3 doseže vse, kar ponujajo gore.
                         </p>
                         <p class="text-muted">Mnenja (24)</p>
                     </div>
@@ -99,7 +102,7 @@
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="shop-single.html">
+                    <a href="" [routerLink]="['/trgovina']" aria-label="trgovina">
                         <img src="assets/img/feature_prod_02.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -113,11 +116,11 @@
                                 
                                
                             </li>
-                            <li class="text-muted text-right">$480.00</li>
+                            <li class="text-muted text-right">{{480.00 | currency: 'EUR'}}</li>
                         </ul>
                         <a href="" class="h2 text-decoration-none text-dark">Lange Heated Ski Boot Bag</a>
                         <p class="card-text">
-                            World Cup circuit, heavy-duty heated boot bag (120V) keeps boots warm and dry while driving to the resort.
+                            Zmogljiva ogrevalna torba za škornje (120 V) na dirkališču svetovnega pokala ohranja tople in suhe škornje med vožnjo do letovišča.
                         </p>
                         <p class="text-muted">Mnenja (48)</p>
                     </div>
@@ -125,7 +128,7 @@
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="">
+                    <a href="" [routerLink]="['/trgovina']" aria-label="trgovina">
                         <img src="assets/img/feature_prod_03.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -137,11 +140,11 @@
                                 <i class="text-warning fa fa-star"></i>
                                 <i class="text-warning fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$360.00</li>
+                            <li class="text-muted text-right">{{360.00 | currency: 'EUR'}}</li>
                         </ul>
                         <a href="" class="h2 text-decoration-none text-dark">Rome Agent Snowboard</a>
                         <p class="card-text">
-                         The Agent is a true heritage board for Rome. Built with the ride-anything sensibilities of Fusion Camber...
+                            Agent je prava dediščina Rima. Izdelan z občutkom za vožnjo kjerkoli.
                         </p>
                         <p class="text-muted">Mnenja (74)</p>
                     </div>
@@ -166,7 +169,7 @@
                 <div class="row d-flex flex-row">
                     <!--Controls-->
                     <div class="col-1 align-self-center">
-                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
+                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev" aria-label="levo">
                             <i class="text-light fas fa-chevron-left"></i>
                         </a>
                     </div>
@@ -224,7 +227,7 @@
 
                     <!--Controls-->
                     <div class="col-1 align-self-center">
-                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
+                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next" aria-label="desno">
                             <i class="text-light fas fa-chevron-right"></i>
                         </a>
                     </div>

@@ -39,7 +39,7 @@ export class PoslovalniceComponent implements OnInit {
     this.poslovalnice.forEach((Branch) => {
       this.poslovalniceService.getNotificationsByBranch(Branch.BranchID).subscribe((notifications)=> {
         this.notifications[Branch.BranchID] = notifications;
-        //console.log('Pridobljena obvestila:', notifications);
+        
       } )
     })
   }

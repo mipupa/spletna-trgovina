@@ -12,23 +12,11 @@
         *ngFor="let poslovalnica of poslovalnice; let i = index"
       >
         <div class="card h-100">
-          <img
-            src="{{ poslovalnica.img_url }}"
-            class="card-img-top"
-            alt="{{ poslovalnica.name }}"
-          />
+          <img src="{{ poslovalnica.img_url }}" class="card-img-top" alt="..."/>
 
           <div class="card-body">
-            <ul class="list-unstyled d-flex justify-content-between">
-              {{
-                poslovalnica.address
-              }}
-            </ul>
-            <strong
-              ><a class="h3 text-decoration-none text-dark">{{
-                poslovalnica.name
-              }}</a></strong
-            >
+            <ul class="list-unstyled d-flex justify-content-between">{{poslovalnica.address}}</ul>
+            <strong><a class="h3 text-decoration-none text-dark">{{poslovalnica.name}}</a></strong>
             <p class="card-text"></p>
             <ul class="list-inline">
               <li class="list-inline-item">
@@ -62,21 +50,13 @@
               </li>
             </ul>
 
-            <google-map
+            <google-map              
               [height]="'200px'"
               [width]="'100%'"
               [zoom]="zoom"
-              [center]="{
-                lat: poslovalnica.loc_lat,
-                lng: poslovalnica.loc_lng
-              }"
-            >
+              [center]="{lat: poslovalnica.loc_lat, lng: poslovalnica.loc_lng}">
               <map-marker
-                [position]="{
-                  lat: poslovalnica.loc_lat,
-                  lng: poslovalnica.loc_lng
-                }"
-              >
+                [position]="{lat: poslovalnica.loc_lat, lng: poslovalnica.loc_lng}">
               </map-marker>
             </google-map>
             

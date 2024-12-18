@@ -3,3 +3,12 @@ footer {
         font-weight: 300;
     }
 }
+
+#tempaltemo_footer {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.container {
+    display:grid;
+}
