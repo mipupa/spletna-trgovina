@@ -22,7 +22,7 @@
                                     #name="ngModel">
                                 <div *ngIf="name.invalid && (name.dirty || name.touched)">
                                     <div *ngIf="name.errors?.['required']">
-                                        <p>*Ime je obvezen podatek</p>
+                                        *Ime je obvezen podatek
                                     </div>
 
                                 </div>
@@ -43,10 +43,10 @@
 
                                 <div *ngIf="email.errors && (email.dirty || email.touched)">
                                     <div *ngIf="email.errors?.['required']">
-                                        <p>*E-mail je obvezen podatek</p>
+                                        *E-mail je obvezen podatek
                                     </div>
                                     <div *ngIf="email.errors?.['email']">
-                                        <p>*E-mail ni pravilno zapisan</p>
+                                        *E-mail ni pravilno zapisan
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                     required #message="ngModel"></textarea>
                                 <div *ngIf="!message.value && (message.dirty || message.touched)">
                                     <div *ngIf="message.errors?.['required']">
-                                        <p>*Sporočilo je obvezen podatek</p>
+                                        *Sporočilo je obvezen podatek
                                     </div>
                                 </div>
                             </div>

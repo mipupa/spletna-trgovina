@@ -11,7 +11,7 @@
         class="col-12 col-md-4 mb-4"
         *ngFor="let poslovalnica of poslovalnice; let i = index"
       >
-        <div class="card h-100" style="background-color: aliceblue;">
+        <div class="card h-100 border-dark-subtle shadow-sm bg-white">
           <img src="{{ poslovalnica.img_url }}" class="card-img-top" alt="{{poslovalnica.name}}"/>
 
           <div class="card-body">
@@ -23,7 +23,7 @@
                 <h6>Vodja:</h6>
               </li>
               <li class="list-inline-item">
-                <p class="text-muted">
+                <p>
                   <strong>{{ poslovalnica.manager }}</strong>
                 </p>
               </li>
@@ -34,7 +34,7 @@
                 <h6>Kontakt:</h6>
               </li>
               <li class="list-inline-item">
-                <p class="text-muted">
+                <p>
                   <strong>{{ poslovalnica.contact }}</strong>
                 </p>
               </li>
@@ -44,7 +44,7 @@
                 <h6>Odpiralni čas:</h6>
               </li>
               <li class="list-inline-item">
-                <p class="text-muted">
+                <p>
                   <strong>{{ poslovalnica.working_hours }}</strong>
                 </p>
               </li>
@@ -59,19 +59,20 @@
                 [position]="{lat: poslovalnica.loc_lat, lng: poslovalnica.loc_lng}">
               </map-marker>
             </google-map>
-            
+            <div class="py-3">
             <h6 class="text-dark">Obvestila:</h6>
+            </div>
             <div *ngIf="notifications[poslovalnica.BranchID].length > 0; else noNotifications">
               <ul class="list-inline">
                 
               <li class="list-inline-item" *ngFor="let notification of notifications[poslovalnica.BranchID]">
                 <span class="fa fa-caret-right" aria-hidden="true">&nbsp;</span>
-                <span class="text-dark">{{ notification.date.toDate() | date: 'dd.MM.yyy' }}&nbsp;-&nbsp;</span>
-                <span class="text-muted">{{ notification.message }}</span>
+                <span class="text-dark">{{ notification.date.toDate() | date: 'dd.MM.yyy' }}&nbsp;</span>
+                <span class="text-muted"><p>{{ notification.message }}</p></span>
               </li>
               </ul>
             </div>
-              <ng-template #noNotifications><span class="text-muted">Ni obvestil.</span></ng-template> 
+              <ng-template #noNotifications><span class="text-muted"><p>Ni obvestil.</p></span></ng-template> 
 
           </div>          
         </div>

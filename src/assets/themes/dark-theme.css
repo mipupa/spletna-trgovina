@@ -150,13 +150,13 @@ body .container .card-body .google-map {
 }
 /* Services */
 .services-icon-wap {transition: .3s;}
-.services-icon-wap:hover, .services-icon-wap:hover i {color:whitesmoke;}
-.services-icon-wap:hover {background:whitesmoke;}
-.services-icon-wap:hover {color:rgb(0, 0, 0)}
+.services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
+.services-icon-wap:hover {background: #48484a;}
+
 
 /* Contact map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}
-.form-control { border: 1px solid #e8e8e8;}
+.form-control { border: 1px solid #000000;}
 
 /* Footer */
 #tempaltemo_footer a { color: #dcdde1;}
