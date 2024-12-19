@@ -62,6 +62,16 @@ body .container .card-body .google-map {
   font-size: 22px !important;
   color:whitesmoke !important;
 }
+.container .h4 {
+  color:whitesmoke !important;
+}
+.container .h5 {
+  color:whitesmoke !important;
+}
+.container .card .card-body h6 {
+  color:whitesmoke !important;
+}
+
 /* General */
 .logo { font-weight: 500 !important;}
 .text-danger {color: whitesmoke !important;}
