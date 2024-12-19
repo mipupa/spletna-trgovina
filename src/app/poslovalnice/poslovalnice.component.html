@@ -2,7 +2,7 @@
   <div class="container py-5">
     <div class="row text-center py-3">
       <div class="col-lg-6 m-auto">
-        <h1 class="h1">Naše lokacije</h1>
+        <h1>Naše lokacije</h1>
         <p>Preverite kje nas lahko najdete v Sloveniji!</p>
       </div>
     </div>
@@ -11,8 +11,8 @@
         class="col-12 col-md-4 mb-4"
         *ngFor="let poslovalnica of poslovalnice; let i = index"
       >
-        <div class="card h-100">
-          <img src="{{ poslovalnica.img_url }}" class="card-img-top" alt="..."/>
+        <div class="card h-100" style="background-color: aliceblue;">
+          <img src="{{ poslovalnica.img_url }}" class="card-img-top" alt="{{poslovalnica.name}}"/>
 
           <div class="card-body">
             <ul class="list-unstyled d-flex justify-content-between">{{poslovalnica.address}}</ul>
@@ -49,8 +49,8 @@
                 </p>
               </li>
             </ul>
-
-            <google-map              
+            
+            <google-map class="google-map"            
               [height]="'200px'"
               [width]="'100%'"
               [zoom]="zoom"

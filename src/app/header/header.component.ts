@@ -27,8 +27,8 @@ export class HeaderComponent {
      this.auth.logout();
    } 
 
-   themes = ['original-theme', 'dark-theme', 'light-theme'];
-   selectedTheme = 'original-theme'; // Privzeta tema
+   themes = ['dark-theme', 'light-theme'];
+   selectedTheme = 'light-theme'; // Privzeta tema
 
    changeTheme(): void {
     const currentIndex = this.themes.indexOf(this.selectedTheme);
