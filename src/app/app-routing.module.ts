@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: 'product-details/:CategoryID/:ProductID', component: ProductDetailsComponent},
   {path: 'cart', component: KosaricaComponent},
 
+
   
 ];
 

@@ -41,8 +41,8 @@ import { KosaricaComponent } from './kosarica/kosarica.component';
     CustomerProfileComponent,
     ProductDetailsComponent,
     PreteklaNarocilaComponent,
-    KosaricaComponent,  
-    
+    KosaricaComponent
+
   ],
   imports: [
     BrowserModule,

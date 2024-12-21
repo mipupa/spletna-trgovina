@@ -56,25 +56,34 @@
             &euro; {{ totalPrice | currency }}
           </div>
         </div>
-  
-        <form>
-          <p>SHIPPING</p>
-          <select>
-            <option class="text-muted">Standard-Delivery- &euro;5.00</option>
-          </select>
-          <p>GIVE CODE</p>
-          <input id="code" placeholder="Enter your code">
-        </form>
-  
+
         <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-          <div class="col">TOTAL PRICE</div>
-          <div class="col text-right">
-            &euro; {{ totalPrice + 5 | currency }} <!-- Including shipping -->
+            <div class="col">VAT (22%)</div>
+            <div class="col text-right">
+              &euro; {{ totalVAT | currency }}
+            </div>
           </div>
-        </div>
   
-        <button class="btn">CHECKOUT</button>
-      </div>
-    </div>
-  </div>
+        <p class="spacing-top">SHIPPING</p>
+        <select id="dropdown" [(ngModel)]="shippingOption" (change)="onSelectionChange()" class="custom-select">
+        <option value="standard">Standard-Delivery- &euro;5.00</option>
+        <option value="express">Express-Delivery- &euro;10.00</option>
+        </select>
+        <p>PAYMENT</p>
+        <select id="dropdown" [(ngModel)]="paymentOption" (change)="onSelectionChange()" class="custom-select">
+        <option value="creditCard">Credit card</option>
+        <option value="poPovzetju">On delivery</option>
+        </select>
+
+
+    
+          <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            <div class="col">TOTAL PRICE</div>
+            <div class="col text-right">
+              &euro; {{ totalWithShipping | currency }} <!-- Total with shipping + VAT -->
+            </div>
+          </div>
+
+          <button class="btn" (click)="submitOrder()">ORDER</button>
+        </div>
   

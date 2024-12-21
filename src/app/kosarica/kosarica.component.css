@@ -195,4 +195,26 @@ a:hover{
   margin: 0 10px;
   text-align: center;
 }
+.spacing-top {
+  margin-top: 10px;  /* Adjust the value as needed */
+}
 
+.custom-select {
+  appearance: none; /* Removes default dropdown arrow */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  padding: 10px 15px;  /* Adds padding for better spacing */
+  font-size: 16px;  /* Adjust font size */
+  border: 2px solid #ccc;  /* Subtle border */
+  border-radius: 8px;  /* Rounded corners */
+  background-color: #f9f9f9;  /* Light background */
+  color: #333;  /* Text color */
+  width: 100%;  /* Ensures full width */
+  outline: none;  /* Removes focus outline */
+  transition: all 0.3s ease;  /* Smooth transition for focus effect */
+}
+
+/* Style the dropdown arrow */
+.custom-select:focus {
+  border-color: #007bff;  /* Blue border when focused */
+}
