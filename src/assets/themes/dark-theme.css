@@ -29,45 +29,78 @@ body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
   font-size: 18px !important;
   font-weight: 300 !important;
+  background-color:#212934 ;
+  color:whitesmoke;
 }
-.h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 48px !important;
-  font-weight: 200 !important;
+
+body .container .card-body .google-map {
+  
+  background-color:whitesmoke !important; /*ne deluje */
+  
+ 
 }
-.h2 {
+
+.container {
+  background-color: #212934;
+}
+
+.container .h1{
   font-family: 'Roboto', sans-serif;
   font-size: 30px !important;
-  font-weight: 300;
+  font-weight: 200;
+  color:whitesmoke !important;
 }
-.h3 {
+
+.container .h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px !important;
+  font-weight: 200;
+  color:whitesmoke !important;
+}
+.container .h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 22px !important;
+  color:whitesmoke !important;
 }
+.container .h4 {
+  color:whitesmoke !important;
+}
+.container .h5 {
+  color:whitesmoke !important;
+}
+.container .card .card-body h6 {
+  color:whitesmoke !important;
+}
+
 /* General */
 .logo { font-weight: 500 !important;}
+.text-danger {color: whitesmoke !important;}
 .text-warning {  color: #ede861 !important;}
-.text-muted { color: #bcbcbc !important;}
+.text-muted { color:whitesmoke !important;}
 .text-success { color: #59ab6e !important;}
 .text-light { color: #cfd6e1 !important;}
+.text-dark { color: #cfd6e1 !important;}
 .bg-dark { background-color: #212934 !important;}
-.bg-light { background-color: #e9eef5 !important;}
+.bg-light { background-color: #212934 !important;}
 .bg-black { background-color: #1d242d !important;}
-.bg-success { background-color: #59ab6e !important;}
+.bg-success { background-color:  #dcdde1 !important;}
 .btn-success {
-  background-color: #59ab6e !important;
-  border-color: #56ae6c !important;
+  background-color: whitesmoke !important;
+  border-color: gray !important;
+  color:#212934 !important;
 }
+
+
 .pagination .page-link:hover {color: #000;}
 .pagination .page-link:hover, .pagination .page-link.active {
-  background-color: #69bb7e;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
 }
 /* Nav */
 #templatemo_nav_top { min-height: 40px;}
 #templatemo_nav_top * { font-size: .9em !important;}
-#templatemo_main_nav a { color: #212934;}
-#templatemo_main_nav a:hover { color: #69bb7e;}
+#templatemo_main_nav a { color: whitesmoke;}
+#templatemo_main_nav a:hover { color: #eaff00;}
 #templatemo_main_nav .navbar .nav-icon { margin-right: 20px;}
 
 /* Hero Carousel */
@@ -102,13 +135,13 @@ body, ul, li, p, a, label, input, div {
 }
 /* Brand */
 .brand-img {
-  filter: grayscale(100%);
+  filter:invert(100%);
   opacity: 0.5;
   transition: .5s;
 }
 .brand-img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+  filter:invert(50%);
+  opacity: 5;
 }
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
@@ -128,13 +161,16 @@ body, ul, li, p, a, label, input, div {
 /* Services */
 .services-icon-wap {transition: .3s;}
 .services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
-.services-icon-wap:hover {background: #69bb7e;}
+.services-icon-wap:hover {background: #48484a;}
+
+
 /* Contact map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}
-.form-control { border: 1px solid #e8e8e8;}
+.form-control { border: 1px solid #000000;}
+
 /* Footer */
 #tempaltemo_footer a { color: #dcdde1;}
-#tempaltemo_footer a:hover { color: #68bb7d;}
+#tempaltemo_footer a:hover { color: #eaff00;}
 #tempaltemo_footer ul.footer-link-list li { padding-top: 10px;}
 #tempaltemo_footer ul.footer-icons li {
   width: 2.6em;

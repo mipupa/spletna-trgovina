@@ -1,81 +1,82 @@
 <section class="bg-light">
   <div class="container py-5">
-      <div class="row text-center py-3">
-          <div class="col-lg-6 m-auto">
-              <h1 class="h1">Naše lokacije</h1>
-              <p>
-              Preverite kje nas lahko najdete v Sloveniji!
-              </p>
-          </div>
+    <div class="row text-center py-3">
+      <div class="col-lg-6 m-auto">
+        <h1>Naše lokacije</h1>
+        <p>Preverite kje nas lahko najdete v Sloveniji!</p>
       </div>
-      <div class="row">
-          <div class="col-12 col-md-4 mb-4" *ngFor="let poslovalnica of poslovalnice; let i = index">
-              <div class="card h-100">
-                  
-                      <img src="{{poslovalnica.img_url}}" class="card-img-top" alt="{{poslovalnica.name}}">
-                  
-                  <div class="card-body">
-                      <ul class="list-unstyled d-flex justify-content-between">
-                        {{ poslovalnica.address }}
-                          
-                      </ul>
-                      <strong><a class="h3 text-decoration-none text-dark">{{poslovalnica.name}}</a></strong>
-                      <p class="card-text"></p>
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <h6>Vodja:</h6>
-                        </li>
-                        <li class="list-inline-item">
-                          <p class="text-muted">
-                            <strong>{{ poslovalnica.manager }}</strong>
-                          </p>
-                        </li>
-                      </ul>
+    </div>
+    <div class="row">
+      <div
+        class="col-12 col-md-4 mb-4"
+        *ngFor="let poslovalnica of poslovalnice; let i = index"
+      >
+        <div class="card h-100 border-dark-subtle shadow-sm bg-white">
+          <img src="{{ poslovalnica.img_url }}" class="card-img-top" alt="{{poslovalnica.name}}"/>
 
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <h6>Kontakt:</h6>
-                        </li>
-                        <li class="list-inline-item">
-                          <p class="text-muted">
-                            <strong>{{ poslovalnica.contact }}</strong>
-                          </p>
-                        </li>
-                      </ul>
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <h6>Odpiralni čas:</h6>
-                        </li>
-                        <li class="list-inline-item">
-                          <p class="text-muted">
-                            <strong>{{ poslovalnica.working_hours }}</strong>
-                          </p>
-                        </li>
-                      </ul>
-          
-          
-                      <google-map
-                      [height]="'200px'"
-                      [width]="'100%'"
-                      [zoom]="zoom"
-                      [center]="{
-                        lat: poslovalnica.loc_lat,
-                        lng: poslovalnica.loc_lng
-                      }"
-                    >
-                      <map-marker
-                        [position]="{
-                          lat: poslovalnica.loc_lat,
-                          lng: poslovalnica.loc_lng
-                        }"
-                      >
-                      </map-marker>
-                    </google-map>
+          <div class="card-body">
+            <ul class="list-unstyled d-flex justify-content-between">{{poslovalnica.address}}</ul>
+            <strong><a class="h3 text-decoration-none text-dark">{{poslovalnica.name}}</a></strong>
+            <p class="card-text"></p>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <h6>Vodja:</h6>
+              </li>
+              <li class="list-inline-item">
+                <p>
+                  <strong>{{ poslovalnica.manager }}</strong>
+                </p>
+              </li>
+            </ul>
+
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <h6>Kontakt:</h6>
+              </li>
+              <li class="list-inline-item">
+                <p>
+                  <strong>{{ poslovalnica.contact }}</strong>
+                </p>
+              </li>
+            </ul>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <h6>Odpiralni čas:</h6>
+              </li>
+              <li class="list-inline-item">
+                <p>
+                  <strong>{{ poslovalnica.working_hours }}</strong>
+                </p>
+              </li>
+            </ul>
             
-                  </div>
-              </div>
-          </div>
-         
-              </div>
-          </div>
+            <google-map class="google-map"            
+              [height]="'200px'"
+              [width]="'100%'"
+              [zoom]="zoom"
+              [center]="{lat: poslovalnica.loc_lat, lng: poslovalnica.loc_lng}">
+              <map-marker
+                [position]="{lat: poslovalnica.loc_lat, lng: poslovalnica.loc_lng}">
+              </map-marker>
+            </google-map>
+            <div class="py-3">
+            <h6 class="text-dark">Obvestila:</h6>
+            </div>
+            <div *ngIf="notifications[poslovalnica.BranchID].length > 0; else noNotifications">
+              <ul class="list-inline">
+                
+              <li class="list-inline-item" *ngFor="let notification of notifications[poslovalnica.BranchID]">
+                <span class="fa fa-caret-right" aria-hidden="true">&nbsp;</span>
+                <span class="text-dark">{{ notification.date.toDate() | date: 'dd.MM.yyy' }}&nbsp;</span>
+                <span class="text-muted"><p>{{ notification.message }}</p></span>
+              </li>
+              </ul>
+            </div>
+              <ng-template #noNotifications><span class="text-muted"><p>Ni obvestil.</p></span></ng-template> 
+
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

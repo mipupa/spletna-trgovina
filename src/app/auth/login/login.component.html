@@ -6,7 +6,7 @@
               <div class="card-body">
                   <form>
                       <div class="mb-3">
-                          <h4 class="text-dark text-muted">Login</h4>
+                          <h4 class="text-dark text-muted">Prijava</h4>
                       </div>
                       <div class="form-floating">
                         <input type="username" 
@@ -15,7 +15,7 @@
                         placeholder="Username"
                         name="email"
                         [(ngModel)]="email">
-                        <label for="floatingInput">Username</label>
+                        <label for="floatingInput">Uporabniško ime</label>
                       </div>
                       <div class="form-floating">
                         <input type="password" 
@@ -24,27 +24,27 @@
                         placeholder="Password"
                         name="password"
                         [(ngModel)]="password">
-                        <label for="floatingPassword">Password</label>
+                        <label for="floatingPassword">Geslo</label>
                       </div>
                       <hr/>
-                          <button class="w-100 btn btn-lg btn-primary" 
+                          <button class="w-100 btn btn-lg btn-success" 
                               type="submit"
                               (click)="login()">
                               Login</button>
                               <ul></ul>
                       <div class="row">
                           <div class="mb-3">
-                              <a href="/register" style="text-decoration: none;">Need Account ? <span class="text-danger">Register</span></a>
+                              <a href="/register" style="text-decoration: none;">Želiš račun? <span class="text-danger">Ustvari račun</span></a>
                           </div>
                           <div class="md-3">
-                              <a href="/forgot-password" class="text-dark" style="text-decoration: none;"> Forgot Password ? </a>
+                              <a href="/forgot-password" class="text-dark" style="text-decoration: none;"> Pozabljeno geslo? </a>
                           </div>
                       </div>
                       <div class="row mt-2">
                           <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
                               <div class="card shadow text-center">
                                   <div class="card-body">
-                                      <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with Google
+                                      <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Prijava z Google računom
                                   </div>
                               </div>
                           </a>
@@ -53,6 +53,6 @@
               </div>
           </div>
       </div>
-      <div class="col"></div>
+      <div class="col"></div><div class="py-5"></div>
   </div>
 </div>
