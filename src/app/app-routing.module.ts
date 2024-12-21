@@ -10,6 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { KosaricaComponent } from './kosarica/kosarica.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path : 'forgot-password', component: ForgotPasswordComponent},
   {path : 'profile', component: CustomerProfileComponent},
   {path: 'product-details/:CategoryID/:ProductID', component: ProductDetailsComponent},
+  {path: 'cart', component: KosaricaComponent},
 
   
 ];

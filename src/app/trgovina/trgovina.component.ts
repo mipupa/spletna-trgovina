@@ -5,7 +5,8 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../model/product';
 import { SearchService } from '../services/search.service';
 import { debounceTime } from 'rxjs';
-
+import { KosaricaService } from '../services/kosarica.service'; // Uredi pot
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-trgovina',
   templateUrl: './trgovina.component.html',
@@ -18,7 +19,7 @@ export class TrgovinaComponent implements OnInit {
   sortOrder: string | null = null; //ni nastavljen privzeti filter
   searchTerm: string ='';
 
-  constructor(private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService  ) { }
+  constructor(private router: Router, private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService, private kosaricaService: KosaricaService  ) { }
 
   categories: Category[] = [];
   products: Product[] = [];
@@ -110,4 +111,18 @@ export class TrgovinaComponent implements OnInit {
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedProducts = this.filteredProducts.slice(startIndex, endIndex);
   }
+
+  
+  addToCartAndRedirect(productId: number): void {
+    this.kosaricaService.addProductToCart(productId, 1)
+      .then(() => {
+        //alert('Izdelek je bil dodan v košarico!');
+        this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
+      })
+      .catch(error => {
+        console.error('Napaka pri dodajanju v košarico:', error);
+        alert('Napaka pri dodajanju v košarico.');
+      });
+  }
+  
 }

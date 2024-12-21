@@ -55,8 +55,12 @@
                   </li>
 
                   <li>
-                    <a class="btn btn-success text-white mt-2" href="/cart"><i class="fas fa-cart-plus" aria-label="V košarico"></i></a>
-                  </li>
+                    <a 
+                    class="btn btn-success text-white mt-2" 
+                    (click)="addToCartAndRedirect(product.ProductID)">
+                    <i class="fas fa-cart-plus" aria-label="V košarico"></i>
+                  </a>
+                                    </li>
                 </ul>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 import { KosaricaService } from '../services/kosarica.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -23,7 +24,7 @@ export class ProductDetailsComponent {
     }).format(value);
   }
 
-  constructor(private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private router: Router, private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
 
   /*ngOnInit(): void {
     // Pridobi `productId` iz URL-ja
@@ -81,8 +82,16 @@ export class ProductDetailsComponent {
       }
     }
 
-    addProductToCart(productId: number): void {
-      this.kosaricaService.addProductToCart(productId);
-    }  
+    addToCartAndRedirect(productId: number): void {
+      this.kosaricaService.addProductToCart(productId, 1)
+        .then(() => {
+          //alert('Izdelek je bil dodan v košarico!');
+          this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
+        })
+        .catch(error => {
+          console.error('Napaka pri dodajanju v košarico:', error);
+          alert('Napaka pri dodajanju v košarico.');
+        });
+    }
   }
 
