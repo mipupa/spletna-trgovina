@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable, forkJoin, from, of } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin, from, of } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Product } from '../model/product';
 import { catchError } from 'rxjs/operators';
+import { UserDataService } from './user-data.service';
 
 interface CartItem {
   [key: string]: number; // productId: quantity
@@ -22,8 +23,44 @@ export class KosaricaService {
   private cartCollection = this.afs.collection('cart');
   private productsCollection = this.afs.collection('Product');
   private localStorageKey = 'guestCart'; // Key for guest cart storage
+  private productsInCart = new BehaviorSubject<any[]>([]);
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private firestore: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {}
+
+  //metoda za pridobivanje trenutnega števila izdelkov v košarici za trenutno prijavljenega
+  // uporabnika za namen prikaza števila produktov v header komponenti (ikona košarica)!
+  getTrenutnoStanje(): Observable<number> {
+    const uid = localStorage.getItem('token'); // Pridobi uid iz localStorage
+
+    if (!uid) {
+      return of(0); // Če uid ni nastavljen, vrni 0
+    }
+  
+    console.log('UID:', uid); // Debug UID
+    return this.afs
+      .collection('cart', ref => ref.where('uid', '==', uid)) // Filtriraj po `uid`
+      .valueChanges()
+      .pipe(
+        map((documents: any[]) => {
+          console.log('Cart Documents:', documents); // Debug dokumenti v Firestore-u
+  
+          if (documents.length === 0) return 0; // Če ni dokumentov, vrni 0
+  
+          const cartItems = documents[0]?.cartItems;
+  
+          // Če cartItems ni array, preštej elemente direktno iz objekta
+          if (typeof cartItems === 'object') {
+            console.log('cartItems as object:', cartItems); // Debug izpis objekta
+            return Object.values(cartItems).reduce((total: number, item: any) => total + (item || 0), 0); // Preštej vse elemente objekta
+          }
+  
+          console.log('cartItems as array:', cartItems); // Debug za array
+          return cartItems.reduce((total: number, item: any) => total + (item.quantity || 0), 0); // Če je array, preštej elemente
+        })
+      );
+  }
+  
+  
 
   // Fetch user's cart data (Support for both authenticated and guest users)
   getCartData(): Observable<Cart> {
@@ -220,5 +257,26 @@ export class KosaricaService {
     } else {
       return { uid: this.generateRandomUid(), cartItems: {} };
     }
+  }
+
+  //Izprazni košarico za trenutno prijavljenega uporabnika
+  EmptyCart(): Observable<void> {
+    const uid = localStorage.getItem('token'); // Pridobi uid iz localStorage
+  
+    if (!uid) {
+      console.error('UID ni nastavljen!');
+      return of(); // Vrni prazen Observable, ker UID ni na voljo
+    }
+  
+    console.log('UID:', uid); // Debug UID
+  
+    return from(
+      this.afs.collection('cart').doc(uid).delete() // Izbriši celoten dokument košarice za trenutni UID
+    ).pipe(
+      catchError(error => {
+        console.error('Napaka pri brisanju košarice:', error);
+        return of(); // V primeru napake vrni prazen Observable
+      })
+    );
   }
 }

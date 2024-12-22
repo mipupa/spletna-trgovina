@@ -2,8 +2,7 @@ body{
   background: #ddd;
   min-height: 100vh;
   vertical-align: middle;
-  display: flex;
-  font-family: sans-serif;
+  display: flex;  
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -12,13 +11,13 @@ body{
 }
 .card{
   margin: auto;
-  max-width: 950px;
-  width: 90%;
+  max-width: auto;
+  width: 100%;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
   border: transparent;
 }
-@media(max-width:767px){
+@media(max-width:250px){
   .card{
       margin: 3vh auto;
   }
@@ -29,6 +28,10 @@ body{
   border-bottom-left-radius: 1rem;
   border-top-left-radius: 1rem;
 }
+
+.container p {
+  font-size: medium !important;
+}
 @media(max-width:767px){
   .cart{
       padding: 4vh;
@@ -37,7 +40,7 @@ body{
   }
 }
 .summary{
-  background-color: #ddd;
+  background-color: #e9eef5;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 4vh;
@@ -69,16 +72,17 @@ body{
 .col-2, .col{
   padding: 0 1vh;
 }
-a{
-  padding: 0 1vh;
-}
+
 .close{
   margin-left: auto;
   font-size: 0.7rem;
 
 }
-img{
-  width: 3.5rem;
+img {
+  max-width: 120px;
+  max-height: 120px;
+  display:inline-block; /*omogoči prilagoditev velikosti*/
+  object-fit:contain;
 }
 .back-to-shop{
   margin-top: 4.5rem;
@@ -112,35 +116,7 @@ input:focus::-webkit-input-placeholder
 {
     color:transparent;
 }
-.btn{
-  background-color: #000;
-  border-color: #000;
-  color: white;
-  width: 100%;
-  font-size: 0.7rem;
-  margin-top: 4vh;
-  padding: 1vh;
-  border-radius: 0;
-}
-.btn:focus{
-  box-shadow: none;
-  outline: none;
-  box-shadow: none;
-  color: white;
-  -webkit-box-shadow: none;
-  -webkit-user-select: none;
-  transition: none; 
-}
-.btn:hover{
-  color: white;
-}
-a{
-  color: black; 
-}
-a:hover{
-  color: black;
-  text-decoration: none;
-}
+
 #code{
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
   background-repeat: no-repeat;

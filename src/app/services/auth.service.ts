@@ -138,4 +138,8 @@ export class AuthService {
     return this.authState.asObservable();
   }
 
+  getCurrentUser() {
+    return this.fireauth.currentUser; // Pridobi trenutnega uporabnika
+  }
+
 }

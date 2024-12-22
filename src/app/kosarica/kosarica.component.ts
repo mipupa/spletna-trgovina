@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component} from '@angular/core';
 import { KosaricaService } from '../services/kosarica.service';
 import { AuthService } from '../services/auth.service';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-kosarica',
@@ -9,19 +10,20 @@ import { AuthService } from '../services/auth.service';
 })
 export class KosaricaComponent {
 
+  categories: any[] = [];
   productsInCart: any[] = [];
   totalPrice: number = 0; // Total price of products
   totalWithShipping: number = 0; // Total price including shipping
   isLoading: boolean = true;
   errorMessage: string | null = null;
-  shippingOption: string = "standard";
-  paymentOption: string = "creditCard";
+  shippingOption: string = "osebno"; //privzeta vrednost
+  paymentOption: string = "poPovzetju"; //šrivzeta vrednost
   shipingCost: number = 0;
   vatRate: number = 0.22; // VAT rate, for example 22%
   totalVAT: number = 0; // VAT value
 
   constructor(
-    private auth: AuthService,
+    private auth: AuthService, private categoryService: CategoryService,
     private kosaricaService: KosaricaService
   ) {
     this.fetchCartItems();
@@ -33,16 +35,32 @@ export class KosaricaComponent {
     this.kosaricaService.getProductsInCart().subscribe({
       next: (products) => {
         this.productsInCart = products;
-        this.calculateTotalPrice();
-        this.updateTotalWithShipping();
-        this.isLoading = false;
+
+        // Fetch category names for each product
+        const categoryIds = products.map(product => product.CategoryID);
+        this.categoryService.getCategoryNames(categoryIds).subscribe({
+          next: (categoryNames) => {
+            this.productsInCart = this.productsInCart.map(product => ({
+              ...product,
+              categoryName: categoryNames[product.CategoryID] // Add category name to each product
+            }));
+
+            this.calculateTotalPrice();
+            this.updateTotalWithShipping();
+            this.isLoading = false;
+          },
+          error: (error) => {
+            this.errorMessage = 'Error fetching category names: ' + error.message;
+            this.isLoading = false;
+          }
+        });
       },
       error: (error) => {
         this.errorMessage = 'Error fetching cart items: ' + error.message;
         this.isLoading = false;
       },
     });
-  }
+}
 
   calculateTotalPrice(): void {
     this.totalPrice = this.productsInCart.reduce(
@@ -62,8 +80,16 @@ export class KosaricaComponent {
   }
 
   getShippingCost(): number {
-    // This will use the updated `shippingOption` as a number
-    return this.shippingOption === "standard" ? 5 : 10; // No need for additional checks, since it's already a number
+    switch (this.shippingOption) {
+      case "standard":
+        return 6;
+      case "express":
+        return 15;
+      case "osebno":
+        return 0;
+      default:
+        throw new Error(`Neznana možnost pošiljanja: ${this.shippingOption}`);
+    }
   }
 
   updateShippingOption(value: string): void {
@@ -123,19 +149,40 @@ export class KosaricaComponent {
     const guestCart = localStorage.getItem('guestCart');
     return guestCart ? JSON.parse(guestCart) : [];
   }
-  onSelectionChange() {
-    // Update the displayed number whenever the dropdown selection changes
-    this.shipingCost = this.shippingOption === "standard" ? 5 : 10 ;
-    console.log('Selected shipping cost:', this.shipingCost);
-    this.updateTotalWithShipping();
 
-  }
+  onSelectionChange() {
+  // Posodobi strošek pošiljanja na podlagi izbrane možnosti
+  this.shipingCost = this.getShippingCost();
+
+  // Prikaži trenutni strošek v konzoli
+  console.log('Selected shipping cost:', this.shipingCost);
+
+  // Posodobi skupni znesek z vključenim stroškom pošiljanja
+  this.updateTotalWithShipping();
+}
+  
   calculateVAT(): void {
     this.totalVAT = this.totalPrice * this.vatRate;
   }
 
+  //funkcija za formatiranje cene iz FireBase namreč prileti number
+  formatCurrency(
+    value: number,
+    locale: string = 'sl-SI',
+    currency: string = 'EUR'
+  ): string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currency,
+    }).format(value);
+  }
+
   submitOrder() {
-    alert("Order submited!")
+    alert("Naročilo uspešno oddano!");
+    this.kosaricaService.EmptyCart(); //izprazni košarico po oddaji naročila!
+
 }
+
+
 }
 

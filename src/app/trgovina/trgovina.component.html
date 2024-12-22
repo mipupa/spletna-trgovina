@@ -42,11 +42,11 @@
 
       <div class="row">
         <div class="col-md-4" *ngFor="let product of filteredProducts | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/{{product.img_url}}" alt="{{product.name}}"/>
+          <div class="card mb-4 product-wap bg-light">
+            <div class="card h-100 border-dark-subtle shadow-sm bg-white">
+              <img class="card-img img-fluid" src="assets/img/{{product.img_url}}" alt="{{product.name}}"/>
               
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+              <div class="card-img-overlay product-overlay d-flex align-items-center justify-content-center">
                 <ul class="list-unstyled">
                                    
                   <li>

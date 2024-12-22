@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ThemeService } from '../services/theme.service';
+import { KosaricaService } from '../services/kosarica.service';
 
 
 @Component({
@@ -13,9 +14,9 @@ export class HeaderComponent {
    countryCodeGB="gb";
    countryCodeDE="de";
    countryCodeSI="si";
-   
+   productsCount: number = 0;
 
-   constructor( private auth : AuthService, private themeService: ThemeService){}
+   constructor( private auth : AuthService, private themeService: ThemeService, private kosarica: KosaricaService){}
 
       
    get isLoggedIn():boolean
@@ -37,11 +38,19 @@ export class HeaderComponent {
     this.themeService.setTheme(this.selectedTheme);
     localStorage.setItem('selectedTheme', this.selectedTheme);
   }
-  
+
+
    ngOnInit(): void {
     const storedTheme = localStorage.getItem('selectedTheme') || this.selectedTheme;
     this.selectedTheme = storedTheme;
     this.themeService.setTheme(this.selectedTheme);
+    
+    //metoda za prikazovanje števila izdelkov/produktov v košarici (ikona košarica)
+    this.kosarica.getTrenutnoStanje().subscribe(count => {
+      this.productsCount = count; // Posodobi prikaz števila produktov
+      
+
+    });
   }
 
   }

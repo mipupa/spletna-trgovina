@@ -90,6 +90,10 @@ body .container .card-body .google-map {
   color:#212934 !important;
 }
 
+.btn:hover {
+  transform: scale(1.15); /* Povečanje velikosti */
+}
+
 
 .pagination .page-link:hover {color: #000;}
 .pagination .page-link:hover, .pagination .page-link.active {
