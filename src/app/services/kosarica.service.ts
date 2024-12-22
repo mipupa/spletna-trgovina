@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, forkJoin, from, of } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Product } from '../model/product';
 import { catchError } from 'rxjs/operators';
-import { UserDataService } from './user-data.service';
+
 
 interface CartItem {
   [key: string]: number; // productId: quantity
@@ -23,8 +23,7 @@ export class KosaricaService {
   private cartCollection = this.afs.collection('cart');
   private productsCollection = this.afs.collection('Product');
   private localStorageKey = 'guestCart'; // Key for guest cart storage
-  private productsInCart = new BehaviorSubject<any[]>([]);
-
+  
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {}
 
   //metoda za pridobivanje trenutnega števila izdelkov v košarici za trenutno prijavljenega
@@ -259,24 +258,116 @@ export class KosaricaService {
     }
   }
 
-  //Izprazni košarico za trenutno prijavljenega uporabnika
-  EmptyCart(): Observable<void> {
-    const uid = localStorage.getItem('token'); // Pridobi uid iz localStorage
-  
-    if (!uid) {
-      console.error('UID ni nastavljen!');
-      return of(); // Vrni prazen Observable, ker UID ni na voljo
-    }
-  
-    console.log('UID:', uid); // Debug UID
-  
-    return from(
-      this.afs.collection('cart').doc(uid).delete() // Izbriši celoten dokument košarice za trenutni UID
-    ).pipe(
-      catchError(error => {
-        console.error('Napaka pri brisanju košarice:', error);
-        return of(); // V primeru napake vrni prazen Observable
-      })
-    );
+ 
+
+//metoda za ustvarjanje naročil registriranega/prijavljenega uporabnika
+createOrder(cenaDostave:number): void {
+  const uid = localStorage.getItem('token'); // Pridobi trenutni UID
+  if (!uid) {
+    console.error('UID ni nastavljen!');
+    return;
   }
+
+  // Pridobitev košarice za trenutnega UID iz Firestore
+  this.afs
+    .collection('cart', ref => ref.where('uid', '==', uid))
+    .valueChanges()
+    .pipe(take(1))
+    .subscribe((cartDocuments: any[]) => {
+      if (cartDocuments.length === 0) {
+        console.error('Košarica je prazna ali ne obstaja!');
+        return;
+      }
+
+      const cart = cartDocuments[0];
+      const cartItems = cart.cartItems;
+      
+
+      if (!cartItems || Object.keys(cartItems).length === 0) {
+        console.error('Košarica je prazna!');
+        return;
+      }
+
+      // Pridobitev vseh izdelkov iz kolekcije Product
+      this.afs.collection('Product').valueChanges({ idField: 'id' }).pipe(take(1)).subscribe((products: any[]) => {
+        const orderItems = Object.keys(cartItems).map(productId => {
+          const product = products.find(p => p.id === productId);
+
+          if (!product) {
+            console.error(`Izdelek z ID ${productId} ni bil najden v Products.`);
+            return null;
+          }
+
+          const quantity = Object.values(cartItems).reduce((total: number, item: any) => (item || 0), 0);
+
+          return {
+            productId,
+            name: product.name || 'Neznan izdelek', // Naziv izdelka
+            price: product.price || 0, // Cena izdelka
+            quantity, // Količina iz košarice
+          };
+        }).filter(item => item !== null);
+
+        if (orderItems.length === 0) {
+          console.error('Košarica ne vsebuje veljavnih izdelkov.');
+          return;
+        }
+
+        const orderData = {
+          uid,
+          orderNumber: this.generateUniqueOrderNumber(),
+          status: 'pending', // Status naročila
+          items: orderItems, // Predmeti iz košarice
+          orderDate: new Date(), // Datum naročila
+          totalPrice: this.calculateTotal(orderItems)+ cenaDostave, // Izračun skupne cene z dostavo
+        };
+
+        // Shranjevanje naročila v Firestore
+        this.afs.collection('Orders').add(orderData)
+          .then(() => {
+            console.log('Naročilo je bilo uspešno shranjeno!');
+            alert("Naročilo uspešno oddano!");
+            // Po uspešnem shranjevanju izprazni košarico
+            this.clearCart(uid);
+          })
+          .catch(error => {
+            console.error('Napaka pri shranjevanju naročila:', error);
+          });
+      });
+    });
 }
+
+// Metoda za generiranje unikatne številke naročila
+private generateUniqueOrderNumber(): string {
+  return 'N-' + Date.now().toString();
+}
+
+// Metoda za izračun skupne cene naročila
+private calculateTotal(orderItems: any[]): number {
+  return orderItems.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
+// Metoda za brisanje košarice
+private clearCart(uid: string): void {
+  this.afs.collection('cart', ref => ref.where('uid', '==', uid))
+    .get()
+    .pipe(take(1))
+    .subscribe(snapshot => {
+      snapshot.forEach(doc => {
+        doc.ref.delete().then(() => console.log('Košarica je izbrisana.'));
+        
+      });
+    });
+}
+}
+
+
+
+
+
+
+
+
+
+
+

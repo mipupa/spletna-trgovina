@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { KosaricaService } from '../services/kosarica.service';
 import { AuthService } from '../services/auth.service';
 import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kosarica',
@@ -17,13 +18,14 @@ export class KosaricaComponent {
   isLoading: boolean = true;
   errorMessage: string | null = null;
   shippingOption: string = "osebno"; //privzeta vrednost
-  paymentOption: string = "poPovzetju"; //šrivzeta vrednost
+  paymentOption: string = "poPovzetju"; //privzeta vrednost
   shipingCost: number = 0;
   vatRate: number = 0.22; // VAT rate, for example 22%
   totalVAT: number = 0; // VAT value
+  
 
   constructor(
-    private auth: AuthService, private categoryService: CategoryService,
+    private auth: AuthService, private categoryService: CategoryService, private route: Router,
     private kosaricaService: KosaricaService
   ) {
     this.fetchCartItems();
@@ -178,11 +180,11 @@ export class KosaricaComponent {
   }
 
   submitOrder() {
-    alert("Naročilo uspešno oddano!");
-    this.kosaricaService.EmptyCart(); //izprazni košarico po oddaji naročila!
-
+    
+    this.kosaricaService.createOrder(this.shipingCost);
+    this.route.navigate(['/narocila']); //
+     
 }
-
 
 }
 

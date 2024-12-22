@@ -11,6 +11,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { KosaricaComponent } from './kosarica/kosarica.component';
+import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path : 'profile', component: CustomerProfileComponent},
   {path: 'product-details/:CategoryID/:ProductID', component: ProductDetailsComponent},
   {path: 'cart', component: KosaricaComponent},
+  {path: 'narocila', component: PreteklaNarocilaComponent}
 
 
   
