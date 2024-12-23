@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OrdersService, Order } from '../services/orders.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pretekla-narocila',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class PreteklaNarocilaComponent {
 
+  orders$: Observable<Order[]>;
+
+  constructor(private ordersService: OrdersService) {
+    this.orders$ = this.ordersService.getOrders();
+  }
 }

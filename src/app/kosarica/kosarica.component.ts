@@ -3,6 +3,7 @@ import { KosaricaService } from '../services/kosarica.service';
 import { AuthService } from '../services/auth.service';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-kosarica',
@@ -125,7 +126,7 @@ export class KosaricaComponent {
       this.updateTotalWithShipping();
     });
   }
-
+ 
   decreaseQuantity(productId: number, quantity: number): void {
     if (quantity === 1) {
       this.removeFromCart(productId);

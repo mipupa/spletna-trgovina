@@ -4,7 +4,7 @@ import { Product } from '../model/product';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class ProductService {
 
