@@ -192,3 +192,19 @@ body, ul, li, p, a, label, input, div {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {}
+
+
+.snack-bar-success {
+  background-color: #4caf50 !important;
+  color: white;
+}
+
+.snack-bar-error {
+  background-color: #f44336 !important;
+  color: white;
+}
+
+.snack-bar-info {
+  background-color: #2196f3 !important;
+  color: white;
+}

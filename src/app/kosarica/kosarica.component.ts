@@ -3,7 +3,9 @@ import { KosaricaService } from '../services/kosarica.service';
 import { AuthService } from '../services/auth.service';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-kosarica',
@@ -26,7 +28,7 @@ export class KosaricaComponent {
   
 
   constructor(
-    private auth: AuthService, private categoryService: CategoryService, private route: Router,
+    private auth: AuthService, private categoryService: CategoryService, private route: Router, private toastr: ToastrService,
     private kosaricaService: KosaricaService
   ) {
     this.fetchCartItems();
@@ -181,9 +183,17 @@ export class KosaricaComponent {
   }
 
   submitOrder() {
-    
+     //kreiram naročilo
     this.kosaricaService.createOrder(this.shipingCost);
-    this.route.navigate(['/narocila']); //
+
+    // Prikaz toasterja s pozicioniranjem
+    this.toastr.success('Naročilo uspešno oddano!');
+  
+  // Navigacija na stran naročil
+  setTimeout(() => {
+    this.route.navigate(['/narocila']);
+  }, 1000); 
+   
      
 }
 

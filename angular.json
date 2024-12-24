@@ -36,12 +36,12 @@
          
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.css",                           
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/css/templatemo.css",                         
+              "src/assets/css/templatemo.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              
+              "node_modules/ngx-toastr/toastr.css"
               
             ],
             "scripts": [
@@ -49,6 +49,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/templatemo.js",
               "src/assets/js/custom.js"
+                           
               
             ]
           },
@@ -107,6 +108,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []

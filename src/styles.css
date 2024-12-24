@@ -8,3 +8,45 @@
 body {
     transition: background-color 0.3s, color 0.3s;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Za uspešna obvestila */
+.toast-success {
+    background-color: #41b85d !important; /* Zelena */        
+  }
+
+.toast-success .toast-message {
+    color: #dddddd !important;
+  }
+  
+  /* Za obvestila o napakah */
+  .toast-error {
+    background-color: #dc3545 !important; /* Rdeča */
+    color: #fff !important;
+  }
+  
+  /* Za opozorilna obvestila */
+  .toast-warning {
+    background-color: #ffc107 !important; /* Rumena */
+    color: #212529 !important;
+  }
+  
+  /* Za informacijska obvestila */
+  .toast-info {
+    background-color: #17a2b8 !important; /* Modra */
+    color: #fff !important;
+  }
+  
+  /* Slog za naslov obvestila */
+  .toast-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Slog za telo obvestila */
+  .toast-message {
+    font-size: 14px;
+  }
+  

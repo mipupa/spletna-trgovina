@@ -4,8 +4,8 @@
       
        
  <div *ngIf="orders$ | async as orders;">
-    <table border="1" style="width: 100%; border-collapse: collapse;">
-      <thead>
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead class="text-success">
           <tr>
           <th>Št. naročila</th>
           <th>Datum</th>
@@ -14,7 +14,7 @@
           <th>Status naročila</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="font-size: medium;">
         <tr *ngFor="let order of orders">
           <td>{{ order.orderNumber }}</td>
           <td>{{ order.orderDate | date:'dd.MM.yyyy' }}</td>

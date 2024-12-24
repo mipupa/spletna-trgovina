@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { BehaviorSubject, Observable, forkJoin, from, of } from 'rxjs';
+import { Observable, forkJoin, from, of } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Product } from '../model/product';
-import { catchError } from 'rxjs/operators';
 
 
 interface CartItem {
@@ -326,7 +325,7 @@ createOrder(cenaDostave:number): void {
         this.afs.collection('Orders').add(orderData)
           .then(() => {
             console.log('Naročilo je bilo uspešno shranjeno!');
-            alert("Naročilo uspešno oddano!");
+            //alert("Naročilo uspešno oddano!");
             // Po uspešnem shranjevanju izprazni košarico
             this.clearCart(uid);
           })

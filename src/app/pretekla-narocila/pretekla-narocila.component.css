@@ -2,13 +2,19 @@ table {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
+    
   }
   
   th, td {
     padding: 10px;
     border: 1px solid #ddd;
+    
   }
   
   th {
     background-color: #f4f4f4;
+  }
+
+  li {
+    font-size: medium !important;
   }
