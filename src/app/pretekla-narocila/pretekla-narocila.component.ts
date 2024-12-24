@@ -14,4 +14,13 @@ export class PreteklaNarocilaComponent {
   constructor(private ordersService: OrdersService) {
     this.orders$ = this.ordersService.getOrders();
   }
+
+  //funkcija za formatiranje cene iz FireBase namreč prileti number
+  formatCurrency(value: number, locale: string='sl-SI', currency: string = 'EUR'):string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currency,
+    }).format(value);
+  }
+  
 }

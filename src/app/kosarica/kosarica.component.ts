@@ -188,12 +188,10 @@ export class KosaricaComponent {
 
     // Prikaz toasterja s pozicioniranjem
     this.toastr.success('Naročilo uspešno oddano!');
-  
-  // Navigacija na stran naročil
-  setTimeout(() => {
+    // Navigacija na stran naročil
+    setTimeout(() => {
     this.route.navigate(['/narocila']);
-  }, 1000); 
-   
+  }, 3000); 
      
 }
 

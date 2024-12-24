@@ -8,13 +8,22 @@ table {
   th, td {
     padding: 10px;
     border: 1px solid #ddd;
-    
   }
   
   th {
     background-color: #f4f4f4;
   }
+  
+ tr:hover {
+    background-color: rgb(78, 240, 94);
+  }
 
   li {
     font-size: medium !important;
+  }
+
+  th, td .text-header {
+    font-weight: 400 !important;
+    color:rgb(34, 34, 35);
+
   }

@@ -315,7 +315,7 @@ createOrder(cenaDostave:number): void {
         const orderData = {
           uid,
           orderNumber: this.generateUniqueOrderNumber(),
-          status: 'pending', // Status naročila
+          status: 'V obdelavi', // Status naročila
           items: orderItems, // Predmeti iz košarice
           orderDate: new Date(), // Datum naročila
           totalPrice: this.calculateTotal(orderItems)+ cenaDostave, // Izračun skupne cene z dostavo
@@ -324,8 +324,8 @@ createOrder(cenaDostave:number): void {
         // Shranjevanje naročila v Firestore
         this.afs.collection('Orders').add(orderData)
           .then(() => {
-            console.log('Naročilo je bilo uspešno shranjeno!');
-            //alert("Naročilo uspešno oddano!");
+            //console.log('Naročilo je bilo uspešno shranjeno!');
+            
             // Po uspešnem shranjevanju izprazni košarico
             this.clearCart(uid);
           })

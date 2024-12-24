@@ -14,11 +14,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Za uspešna obvestila */
 .toast-success {
-    background-color: #41b85d !important; /* Zelena */        
+    background-color: rgb(78, 240, 94) !important;       
   }
 
 .toast-success .toast-message {
-    color: #dddddd !important;
+    color: #151515 !important;
+    font-weight: 300 !important;
   }
   
   /* Za obvestila o napakah */

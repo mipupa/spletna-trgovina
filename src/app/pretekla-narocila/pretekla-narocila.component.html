@@ -1,15 +1,13 @@
-<div class="container py-5">
-  <div class="card border border-shadow">
-    <div class="card h-100 border-dark-subtle shadow-sm bg-light">
-      
-       
+<div class="container py-5">  
+  <div class="text-center align-self-center"><h4>Moja naročila</h4></div>  
+    <div class="card h-100 border-dark-subtle shadow-sm bg-light">       
  <div *ngIf="orders$ | async as orders;">
-    <table style="width: 100%; border-collapse: collapse;">
-      <thead class="text-success">
-          <tr>
+    <table>
+      <thead>
+          <tr class="text-header">
           <th>Št. naročila</th>
-          <th>Datum</th>
-          <th>Znesek</th>
+          <th>Datum naročila</th>
+          <th>Skupni znesek</th>
           <th>Izdelki</th>
           <th>Status naročila</th>
         </tr>
@@ -18,12 +16,12 @@
         <tr *ngFor="let order of orders">
           <td>{{ order.orderNumber }}</td>
           <td>{{ order.orderDate | date:'dd.MM.yyyy' }}</td>
-          <td>{{ order.totalPrice | currency:'EUR' }}</td>
+          <td>{{formatCurrency(order.totalPrice )}}</td>
           
           <td>
             <ul>
               <li *ngFor="let item of order.items">
-                {{ item.name }} ({{ item.quantity }} x {{ item.price | currency:'EUR' }})
+                {{ item.name }} ({{ item.quantity }} x {{ formatCurrency(item.price) }})
               </li>
             </ul>
           </td>
