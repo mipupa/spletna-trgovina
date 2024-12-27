@@ -93,5 +93,7 @@ export class ProductDetailsComponent {
           alert('Napaka pri dodajanju v košarico.');
         });
     }
+
+  
   }
 

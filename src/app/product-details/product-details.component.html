@@ -18,14 +18,12 @@
                     <div class="card-body">
                         <h1 class="h2">{{product.name}}</h1>
                         <p class="h2 py-2">{{formatCurrency(product.price)}}</p>
-                        <p class="py-2">
-                            <i class="fa fa-star text-warning"></i>
-                            <i class="fa fa-star text-warning"></i>
-                            <i class="fa fa-star text-warning"></i>
-                            <i class="fa fa-star text-warning"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <span class="list-inline-item text-dark">Ocena 4.8 | 36 Mnenj</span>
+                        <p class="rating py-2">
+                          <app-rating-display [productId]="product.ProductID" [readonly]="true"></app-rating-display>
                         </p>
+                        <p class="py-2">
+                            <app-rating-create [productId]="product.ProductID"></app-rating-create>
+                          </p>
                       
                         <h6>Opis:</h6>
                         <ul class="list-unstyled pb-3">

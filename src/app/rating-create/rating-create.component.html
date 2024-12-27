@@ -1,0 +1,17 @@
+<div class="already-rated" *ngIf="(hasRated); else rateProduct;">
+  Ta izdelek si že ocenil.
+</div>
+
+<ng-template #rateProduct>
+<div class="rating">
+  <p>Oceni izdelek:</p>
+  <i 
+    *ngFor="let star of stars; let i = index" 
+    class="fa fa-star"
+    [class.filled]="i < rating || i < hover" 
+    (click)="setRating(i + 1)" 
+    (mouseover)="setHover(i + 1)" 
+    (mouseleave)="setHover(0)">
+  </i>
+</div>
+</ng-template>

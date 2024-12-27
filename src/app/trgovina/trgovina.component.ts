@@ -4,9 +4,9 @@ import { Category } from '../model/category';
 import { ProductService } from '../services/product.service';
 import { Product } from '../model/product';
 import { SearchService } from '../services/search.service';
-import { debounceTime } from 'rxjs';
 import { KosaricaService } from '../services/kosarica.service'; // Uredi pot
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-trgovina',
   templateUrl: './trgovina.component.html',

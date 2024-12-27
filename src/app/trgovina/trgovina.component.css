@@ -5,18 +5,20 @@
 }
 
 .img-fluid {
-    width: 300px;
-    height: 300px;
-    display: block; /*omogči prilagoditev velikosti*/
-    object-fit: contain;
+    width: 280px;
+    height: 280px;
+    display:flexbox; /*omogči prilagoditev velikosti*/
+    object-fit:contain;
     text-align: center;
+    vertical-align: middle;
+    
 }
 
 /* background at the number*/
 .pagination-spreads::ng-deep li {
   background-color: #20c997;
   font-family: 'Roboto', sans-serif !important;
-  color:aliceblue
+  color:rgb(255, 255, 255)
   
  }
 

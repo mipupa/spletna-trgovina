@@ -1,4 +1,5 @@
-<!-- Start Content -->
+
+  
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-3">
@@ -12,8 +13,8 @@
         </li>
     </ul>
 </div>
-
-    <div class="col-lg-9">
+ 
+     <div class="col-lg-9">
       <div class="row">
         <div class="col-md-6">
           <div class="input-group mb-2">
@@ -60,22 +61,19 @@
                     (click)="addToCartAndRedirect(product.ProductID)">
                     <i class="fas fa-cart-plus" aria-label="V košarico"></i>
                   </a>
-                                    </li>
+                  </li>
                 </ul>
               </div>
             </div>
             <div class="card-body">
-              <a href="" class="h3 text-decoration-none">{{product.name}}</a>
+              <div class="h3 text-decoration-none">{{product.name}}</div>
               <ul
                 class="w-100 list-unstyled d-flex justify-content-between mb-0">
               </ul>
               <ul class="list-unstyled d-flex justify-content-center mb-1">
                 <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
+                  <app-rating-display [productId]="product.ProductID" [readonly]="true"></app-rating-display>
+                 
                 </li>
               </ul>
               <p class="text-center mb-0"><strong>{{formatCurrency(product.price)}}</strong></p>
@@ -107,4 +105,5 @@
      
     </div>
   </div>
+
 </div>

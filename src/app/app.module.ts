@@ -28,7 +28,8 @@ import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila
 import { KosaricaComponent } from './kosarica/kosarica.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ToastrModule } from 'ngx-toastr';
-
+import { RatingDisplayComponent } from './rating-display/rating-display.component';
+import { RatingCreateComponent } from './rating-create/rating-create.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,10 @@ import { ToastrModule } from 'ngx-toastr';
     CustomerProfileComponent,
     ProductDetailsComponent,
     PreteklaNarocilaComponent,
-    KosaricaComponent
+    KosaricaComponent,
+    RatingDisplayComponent,
+    RatingCreateComponent
+    
 
   ],
   imports: [

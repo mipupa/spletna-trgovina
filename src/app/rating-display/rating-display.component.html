@@ -1,0 +1,20 @@
+<div class="rating mb-1 py-2">
+ <div *ngIf="isRated; else noRating;">
+   
+     <span *ngFor="let star of stars; let i = index">
+        <i class="fa" [ngClass]="{'text-muted fa-star': !isStarFilled(i, (averageRating$ | async))}"></i>
+        <i class="fa" [ngClass]="{'text-warning fa-star': isStarFilled(i, (averageRating$ | async))}"></i>
+     </span>    
+  </div>
+
+  <ng-template #noRating>
+   <span class="rating">
+      <i *ngFor="let star of stars; let i = index" class="fa" [ngClass]="{'text-muted fa-star': !isStarFilled(i, (averageRating$ | async))}"></i>
+   </span>     
+  </ng-template>
+          
+</div>
+
+
+
+  
