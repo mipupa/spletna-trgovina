@@ -30,6 +30,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ToastrModule } from 'ngx-toastr';
 import { RatingDisplayComponent } from './rating-display/rating-display.component';
 import { RatingCreateComponent } from './rating-create/rating-create.component';
+import { OpinionsComponent } from './opinions/opinions.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { RatingCreateComponent } from './rating-create/rating-create.component';
     PreteklaNarocilaComponent,
     KosaricaComponent,
     RatingDisplayComponent,
-    RatingCreateComponent
+    RatingCreateComponent,
+    OpinionsComponent
     
 
   ],

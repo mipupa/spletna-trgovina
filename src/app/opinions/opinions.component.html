@@ -1,0 +1,43 @@
+<div class="opinions-containermb-3">
+    <!-- Prikaz vseh mnenj -->
+    <h5 class="text-center mt-3">Mnenja uporabnikov</h5>
+    <div *ngIf="opinions.length > 0; else noOpinions">
+      <div class="testimonial-text bg-white border rounded shadow-sm overflow-hidden" *ngFor="let opinion of opinions" class="card shadow-sm testimonial-card">
+        <span>
+        <img class="avatar rounded-circle" 
+        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+        <strong class="mx-2">{{ opinion.userName }}</strong>
+        </span>
+        <p class="testimonial-text"><i class="fa fa-quote-left mx-2 quote-icon"></i>{{ opinion.opinion }}<i class="fa fa-quote-left mx-2 quote-icon"></i></p>
+      </div>
+    </div>
+    <ng-template #noOpinions>
+      <p class="text-center">Trenutno ni mnenj za ta izdelek.</p>
+    </ng-template>
+  
+    <!-- Obrazec za oddajo mnenja -->
+    <div class="testimonial-card" *ngIf="isLoggedIn">
+      <div *ngIf="!hasOpinion; else alreadySubmitted">
+      
+      <form class="testimonial-text" [formGroup]="opinionForm" (ngSubmit)="submitOpinion()">
+        <textarea
+          formControlName="opinion"
+          rows="4"
+          placeholder="Napiši mnenje..."
+        ></textarea>
+        <div *ngIf="opinionForm.get('opinion')?.invalid && opinionForm.get('opinion')?.touched">
+          <small class="error">Mnenje mora biti vsaj 5 znakov dolgo.</small>
+        </div>
+        <button class="button btn btn-success" type="submit" [disabled]="opinionForm.invalid">Pošlji</button>
+      </form>
+    </div>
+  
+    <ng-template #alreadySubmitted>
+      <p class="text-center mt-3">Hvala za tvoje mnenje!</p>
+    </ng-template>
+    </div>
+    <!-- Če uporabnik ni prijavljen -->
+    <div *ngIf="!isLoggedIn">
+      <p class="text-center mt-3">Za oddajo mnenja se prijavi.</p>
+    </div>
+  </div>

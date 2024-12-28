@@ -6,11 +6,10 @@
                 <div class="card mb-3">
                     <img class="card-img img-fluid" src="assets/img/{{product.img_url}}" alt="Card image cap" id="product-detail">
                 </div>
-                <div class="row">
-                   
-
-                  
-                </div>
+                    <div class="card mb-3">
+                       <app-opinions [productId]="product.ProductID"></app-opinions>      
+                    </div>            
+                
             </div>
             <!-- col end -->
             <div class="col-lg-7 mt-5">
