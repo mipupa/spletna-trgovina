@@ -30,7 +30,7 @@ export class KosaricaService {
   getTrenutnoStanje(): Observable<number> {
     const uid = localStorage.getItem('token'); // Pridobi uid iz localStorage
 
-    if (!uid) {
+    if (!uid) {       
       return of(0); // Če uid ni nastavljen, vrni 0
     }
   
@@ -239,7 +239,8 @@ export class KosaricaService {
 
   // Generate a random UID for guests
   private generateRandomUid(): string {
-    return Math.random().toString(36).substr(2, 9);
+     return Math.random().toString(36).substr(2, 9);
+    
   }
 
   // Store the guest cart in localStorage
@@ -252,8 +253,8 @@ export class KosaricaService {
     const cartData = localStorage.getItem(this.localStorageKey);
     if (cartData) {
       return JSON.parse(cartData) as Cart;
-    } else {
-      return { uid: this.generateRandomUid(), cartItems: {} };
+    } else { 
+         return { uid: this.generateRandomUid(), cartItems: {} };
     }
   }
 

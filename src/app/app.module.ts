@@ -70,6 +70,8 @@ import { OpinionsComponent } from './opinions/opinions.component';
       timeOut: 3000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
+      progressBar: true,
+      progressAnimation: 'increasing',
     })
 
   ],

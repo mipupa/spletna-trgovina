@@ -12,42 +12,36 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* Za uspešna obvestila */
+ /* Za uspešno obvestilo */
 .toast-success {
-    background-color: rgb(78, 240, 94) !important;       
-  }
-
-.toast-success .toast-message {
-    color: #151515 !important;
-    font-weight: 300 !important;
+    background-color: #5ace75 !important; /* Spremenite barvo */
+    color: #ffffff !important; /* Spremenite barvo pisave */
+    font-size: 16px !important; /* Spremenite velikost pisave */
   }
   
-  /* Za obvestila o napakah */
-  .toast-error {
-    background-color: #dc3545 !important; /* Rdeča */
-    color: #fff !important;
-  }
-  
-  /* Za opozorilna obvestila */
+  /* Za opozorilo */
   .toast-warning {
-    background-color: #ffc107 !important; /* Rumena */
-    color: #212529 !important;
+    background-color: #ffc107 !important;
+    color: #ffffff !important;
   }
   
-  /* Za informacijska obvestila */
-  .toast-info {
-    background-color: #17a2b8 !important; /* Modra */
+  /* Za napako */
+  .toast-error {
+    background-color: #dc3545 !important;
     color: #fff !important;
   }
   
-  /* Slog za naslov obvestila */
-  .toast-title {
-    font-weight: bold;
-    font-size: 16px;
+  /* Za informacijo */
+  .toast-info {
+    background-color: #b5dfe5 !important;
+    color: #fff !important;
   }
   
-  /* Slog za telo obvestila */
-  .toast-message {
-    font-size: 14px;
-  }
-  
+  /* Splošna prilagoditev */
+  .toast {
+    border-radius: 8px !important; /* Zaokroženi robovi */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Dodajte senco */
+    padding: 15px !important;
+    color:#ffffff !important;
+    
+  } 

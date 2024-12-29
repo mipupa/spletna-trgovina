@@ -183,7 +183,8 @@ export class KosaricaComponent {
   }
 
   submitOrder() {
-     //kreiram naročilo
+    if (this.isLoggedIn() && this.productsInCart && this.productsInCart.length > 0 ) {
+    //kreiram naročilo
     this.kosaricaService.createOrder(this.shipingCost);
 
     // Prikaz toasterja s pozicioniranjem
@@ -192,6 +193,11 @@ export class KosaricaComponent {
     setTimeout(() => {
     this.route.navigate(['/narocila']);
   }, 3000); 
+
+  } 
+    else {
+      this.toastr.info('Košarica je prazna. Naročilo ni oddano!');
+    }
      
 }
 
