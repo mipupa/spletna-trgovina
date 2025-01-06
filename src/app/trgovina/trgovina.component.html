@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="input-group mb-2">
-            <input type="text" [(ngModel)]="searchTerm" (input)="onInputSearch()" class="form-control" placeholder="Išči izdelek...">
+            <input aria-label="text" type="text" id="searchtext" [(ngModel)]="searchTerm" (input)="onInputSearch()" class="form-control" placeholder="Išči izdelek...">
             
         </div>
           
@@ -51,7 +51,7 @@
                 <ul class="list-unstyled">
                                    
                   <li>
-                    <a class="btn btn-success text-white mt-2" [routerLink]="['/product-details', product.CategoryID, product.ProductID]">
+                    <a aria-label="Details" class="btn btn-success text-white mt-2" [routerLink]="['/product-details', product.CategoryID, product.ProductID]">
                         <i class="far fa-eye"></i></a>
                   </li>
 

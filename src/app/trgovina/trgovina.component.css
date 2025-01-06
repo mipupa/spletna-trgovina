@@ -14,26 +14,34 @@
     
 }
 
-/* background at the number*/
-.pagination-spreads::ng-deep li {
-  background-color: #20c997;
-  font-family: 'Roboto', sans-serif !important;
-  color:rgb(255, 255, 255)
-  
- }
+.pagination-spreads::ng-deep .ngx-pagination a,
+.pagination-spreads::ng-deep .ngx-pagination button {
+    background: #e9f380 !important;
+    color: black !important;
+    font-size: 20px !important;    
+} 
 
-/* hide the previus when at number 1. with ::before */
-.pagination-spreads::ng-deep ul > li.disabled {
-  display: none !important;
-}
+  .pagination-spreads::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+   background: #e9f380 !important;
+   color: black !important;
+   border-radius: 3px !important;
+   font-weight: 600 !important;
+   font-size: 25px !important; /* Velikost pisave za aktivni element */
+  }
 
-/* deactivated numbers will be grayed out */
-.pagination-spreads::ng-deep ul > li:not(.active) > a {
-  background-color: rgb(255, 255, 255) !important;
-  border-color: black !important;
-  color: #363333;
-}
-.pagination-spreads::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
- background: #20c997 !important;
- border-radius: 3px !important;
-}
+  .pagination-spreads::ng-deep .ngx-pagination .current {
+    background: #e9f380 !important;
+    color: black !important;
+    border-radius: 3px !important;
+   
+    font-size: 25px !important; /* Velikost pisave za aktivni element */
+  }
+
+  .pagination-spreads::ng-deep .ngx-pagination a:active, .ngx-pagination button:active {
+    background: #e9f380 !important;
+    border-radius: 3px !important;
+   
+   }
+
+
+ 

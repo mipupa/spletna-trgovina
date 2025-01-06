@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import "assets/css/templatemo.css";*/
-/*@import "assets/css/custom.css";*/
-/*@import "assets/css/slick-theme.css";*/ 
-/*@import "assets/css/slick-theme.min.css";*/
+/*@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+/*@import "assets/css/templatemo.css";
+/*@import "assets/css/custom.css";
+/*@import "assets/css/slick-theme.css";
+/*@import "assets/css/slick-theme.min.css";
 /*@import "assets/css/slick.min.css";*/
+/*@import "assets/themes/dark-theme.css";
+/*@import "assets/themes/light-theme.css";
 
 body {
     transition: background-color 0.3s, color 0.3s;
@@ -45,3 +48,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color:#ffffff !important;
     
   } 
+

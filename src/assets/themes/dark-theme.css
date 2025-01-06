@@ -93,12 +93,27 @@ body .container .card-body .google-map {
 .btn-success:hover {
   background-color: #14de72 !important;
 }
-
-.pagination .page-link:hover {color: #000;}
-.pagination .page-link:hover, .pagination .page-link.active {
-  background-color: #ffffff;
-  color: #000000;
+.btn-outline-dark {
+  background-color: whitesmoke !important;
+  border-color: whitesmoke !important;
+  color: #333d4a !important;;
 }
+
+.btn-outline-dark:hover {
+  background-color: transparent !important;
+  border-color: whitesmoke !important;
+  color: whitesmoke !important;;
+}
+
+/* background at the number*/
+.pagination-spreads::ng-deep li {
+  background-color: #20c997;
+  font-family: 'Roboto', sans-serif !important;
+  color:rgb(255, 255, 255)
+  
+ }
+
+
 /* Nav */
 #templatemo_nav_top { min-height: 40px;}
 #templatemo_nav_top * { font-size: .9em !important;}
