@@ -4,7 +4,8 @@ import { ProductService } from '../services/product.service';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 import { KosaricaService } from '../services/kosarica.service';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../services/auth.service';
+import { GuestCartService } from '../services/guest-cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -24,7 +25,8 @@ export class ProductDetailsComponent {
     }).format(value);
   }
 
-  constructor(private router: Router, private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(  private authService: AuthService, private guestCartService: GuestCartService,
+    private router: Router, private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
 
   /*ngOnInit(): void {
     // Pridobi `productId` iz URL-ja
@@ -83,17 +85,20 @@ export class ProductDetailsComponent {
     }
 
     addToCartAndRedirect(productId: number): void {
-      this.kosaricaService.addProductToCart(productId, 1)
-        .then(() => {
-          //alert('Izdelek je bil dodan v košarico!');
-          this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
-        })
-        .catch(error => {
-          console.error('Napaka pri dodajanju v košarico:', error);
-          alert('Napaka pri dodajanju v košarico.');
-        });
+      if (this.authService.isLoggedIn()) {
+        this.kosaricaService.addProductToCart(productId, 1)
+          .then(() => {
+            this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
+          })
+          .catch(error => {
+            console.error('Napaka pri dodajanju v košarico:', error);
+            alert('Napaka pri dodajanju v košarico.');
+          });
+      } else {
+        this.guestCartService.addProductToCart(productId, 1);
+        this.router.navigate(['/guest-cart']); // Preusmeritev na stran za goste
+      }
     }
-
   
   }
 

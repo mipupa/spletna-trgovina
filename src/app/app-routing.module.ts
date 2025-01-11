@@ -12,6 +12,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { KosaricaComponent } from './kosarica/kosarica.component';
 import { PreteklaNarocilaComponent } from './pretekla-narocila/pretekla-narocila.component';
+import { GuestCartComponent } from './guest-cart/guest-cart.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path : 'profile', component: CustomerProfileComponent},
   {path: 'product-details/:CategoryID/:ProductID', component: ProductDetailsComponent},
   {path: 'cart', component: KosaricaComponent},
-  {path: 'narocila', component: PreteklaNarocilaComponent}
+  {path: 'narocila', component: PreteklaNarocilaComponent},
+  {path : 'guest-cart', component: GuestCartComponent}
 
 
   

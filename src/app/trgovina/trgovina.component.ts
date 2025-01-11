@@ -6,7 +6,8 @@ import { Product } from '../model/product';
 import { SearchService } from '../services/search.service';
 import { KosaricaService } from '../services/kosarica.service'; // Uredi pot
 import { Router } from '@angular/router';
-
+import { AuthService } from '../services/auth.service';
+import { GuestCartService } from '../services/guest-cart.service';
 @Component({
   selector: 'app-trgovina',
   templateUrl: './trgovina.component.html',
@@ -19,7 +20,8 @@ export class TrgovinaComponent implements OnInit {
   sortOrder: string | null = null; //ni nastavljen privzeti filter
   searchTerm: string ='';
 
-  constructor(private router: Router, private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService, private kosaricaService: KosaricaService  ) { }
+  constructor( private authService: AuthService, private guestCartService: GuestCartService,
+    private router: Router, private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService, private kosaricaService: KosaricaService  ) { }
 
   categories: Category[] = [];
   products: Product[] = [];
@@ -114,15 +116,18 @@ export class TrgovinaComponent implements OnInit {
 
   
   addToCartAndRedirect(productId: number): void {
-    this.kosaricaService.addProductToCart(productId, 1)
-      .then(() => {
-        //alert('Izdelek je bil dodan v košarico!');
-        this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
-      })
-      .catch(error => {
-        console.error('Napaka pri dodajanju v košarico:', error);
-        alert('Napaka pri dodajanju v košarico.');
-      });
+    if (this.authService.isLoggedIn()) {
+      this.kosaricaService.addProductToCart(productId, 1)
+        .then(() => {
+          this.router.navigate(['/cart']); // Preusmeritev na stran s košarico
+        })
+        .catch(error => {
+          console.error('Napaka pri dodajanju v košarico:', error);
+          alert('Napaka pri dodajanju v košarico.');
+        });
+    } else {
+      this.guestCartService.addProductToCart(productId, 1);
+      this.router.navigate(['/guest-cart']); // Preusmeritev na stran za goste
+    }
   }
-  
 }
