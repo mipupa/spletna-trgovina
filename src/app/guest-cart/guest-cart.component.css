@@ -1,0 +1,196 @@
+body{
+    background: #ddd;
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;  
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .title{
+    margin-bottom: 5vh;
+  }
+  .card{
+    margin: auto;
+    max-width: auto;
+    width: 100%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+  }
+  @media(max-width:250px){
+    .card{
+        margin: 3vh auto;
+    }
+  }
+  .cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+  
+  .container p {
+    font-size: medium !important;
+  }
+  @media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+  }
+  .summary{
+    background-color: #e9eef5;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+  }
+  @media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
+  }
+  .summary .col-2{
+    padding: 0;
+  }
+  .summary .col-10
+  {
+    padding: 0;
+  }.row{
+    margin: 0;
+  }
+  .title b{
+    font-size: 1.5rem;
+  }
+  .main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+  }
+  .col-2, .col{
+    padding: 0 1vh;
+  }
+  
+  .close{
+    margin-left: auto;
+    font-size: 0.7rem;
+  
+  }
+  img {
+    max-width: 120px;
+    max-height: 120px;
+    display:inline-block; /*omogoči prilagoditev velikosti*/
+    object-fit:contain;
+  }
+  .back-to-shop{
+    margin-top: 4.5rem;
+  }
+  h5{
+    margin-top: 4vh;
+  }
+  hr{
+    margin-top: 1.25rem;
+  }
+  form{
+    padding: 2vh 0;
+  }
+  select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+  }
+  input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+  }
+  input:focus::-webkit-input-placeholder
+  {
+      color:transparent;
+  }
+  
+  #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+  }
+  
+  /* Ensure that all product images in the cart have the same size */
+  .cart-item img {
+    width: 100%;           /* Make images stretch to full width */
+    height: 150px;         /* Set a fixed height for all images */
+    object-fit: cover;     /* Ensures that the aspect ratio is maintained */
+    border-radius: 8px;    /* Optional: rounded corners */
+  }
+  
+  /* For responsive design, ensure images resize correctly */
+  @media (max-width: 768px) {
+    .cart-item img {
+      height: 120px;       /* Adjust the height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cart-item img {
+      height: 100px;       /* Further reduce the height on very small screens */
+    }
+  }
+  
+  /* Styling for the quantity buttons */
+  .quantity-button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .quantity-button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Optional: Adjust the quantity display element */
+  .quantity-display {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 10px;
+    text-align: center;
+  }
+  .spacing-top {
+    margin-top: 10px;  /* Adjust the value as needed */
+  }
+  
+  .custom-select {
+    appearance: none; /* Removes default dropdown arrow */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    padding: 10px 15px;  /* Adds padding for better spacing */
+    font-size: 16px;  /* Adjust font size */
+    border: 2px solid #ccc;  /* Subtle border */
+    border-radius: 8px;  /* Rounded corners */
+    background-color: #f9f9f9;  /* Light background */
+    color: #333;  /* Text color */
+    width: 100%;  /* Ensures full width */
+    outline: none;  /* Removes focus outline */
+    transition: all 0.3s ease;  /* Smooth transition for focus effect */
+  }
+  
+  /* Style the dropdown arrow */
+  .custom-select:focus {
+    border-color: #007bff;  /* Blue border when focused */
+  }

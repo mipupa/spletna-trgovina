@@ -31,6 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { RatingDisplayComponent } from './rating-display/rating-display.component';
 import { RatingCreateComponent } from './rating-create/rating-create.component';
 import { OpinionsComponent } from './opinions/opinions.component';
+import { GuestCartComponent } from './guest-cart/guest-cart.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { OpinionsComponent } from './opinions/opinions.component';
     KosaricaComponent,
     RatingDisplayComponent,
     RatingCreateComponent,
-    OpinionsComponent
+    OpinionsComponent,
+    GuestCartComponent
     
 
   ],
