@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 
 interface CartItem {
   [key: string]: number; // productId: quantity
@@ -14,9 +17,11 @@ interface Cart {
 })
 export class GuestCartService {
   private localStorageKey = 'guestCart'; // Key for guest cart storage
+  private guestProductsCountSubject = new BehaviorSubject<number>(0);
 
   constructor() {}
 
+  
   // Add a product to the cart
   public addProductToCart(productId: number, quantity: number): void {
     const cart = this.getGuestCart();
@@ -48,4 +53,27 @@ export class GuestCartService {
   private generateRandomUid(): string {
     return Math.random().toString(36).substr(2, 9);
   }
-}
+
+    //metoda za pridobivanje trenutnega števila izdelkov v košarici za gosta
+    // za namen prikaza števila produktov v header komponenti (ikona košarica)!
+    public getGuestCartItemsCount(): Observable<number> {
+      // Pridobi guestCart iz localStorage
+      const guestCart = localStorage.getItem('guestCart');
+      let count = 0;
+  
+      if (guestCart) {
+        try {
+          // Parsiraj JSON v objekt
+          const cartData = JSON.parse(guestCart);
+          // Preštej število ključev v cartItems
+          count = Object.keys(cartData.cartItems || {}).length;
+        } catch (error) {
+          console.error('Napaka pri parsiranju guestCart:', error);
+        }
+      }
+      
+      // Vrni število kot Observable
+      return of(count);
+    }
+  }
+  

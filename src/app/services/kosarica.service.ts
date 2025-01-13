@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable, forkJoin, from, of } from 'rxjs';
+import { Observable, forkJoin, of } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Product } from '../model/product';
 
@@ -21,7 +21,7 @@ interface Cart {
 export class KosaricaService {
   private cartCollection = this.afs.collection('cart');
   private productsCollection = this.afs.collection('Product');
-  private localStorageKey = 'guestCart'; // Key for guest cart storage
+  private localStorageKey = 'guestCartt'; // Key for guest cart storage
   
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {}
 
