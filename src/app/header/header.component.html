@@ -17,13 +17,13 @@
                 </button>
                 </a>
                 
-                <a class="text-light fi fi-{{countryCodeSI}} me-2" href="#" aria-label="SI"> </a>
-                <a class="text-light fi fi-{{countryCodeGB}} me-2" href="#" aria-label="EN"> </a>
-                <a class="text-light fi fi-{{countryCodeDE}} me-2" href="#" aria-label="DE"> </a>
+                <a class="text-light fi fi-{{countryCodeSI}} me-2" href="#" aria-label="SI" matTooltip="Slovenščina"> </a>
+                <a class="text-light fi fi-{{countryCodeGB}} me-2" href="#" aria-label="EN" matTooltip="English"> </a>
+                <a class="text-light fi fi-{{countryCodeDE}} me-2" href="#" aria-label="DE" matTooltip="Deutsch"> </a>
                 
-                <a class="text-light" href="https://fb.com/" target="_blank" rel="sponsored" aria-label="facebook"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank" aria-label="instagram"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.linkedin.com/" target="_blank" aria-label="linkedin"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                <a class="text-light" href="https://fb.com/" target="_blank" rel="sponsored" aria-label="facebook" matTooltip="Facebook"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank" aria-label="instagram" matTooltip="Instagram"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank" aria-label="linkedin" matTooltip="Linkedin"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
             </div>
         </div>
     </div>
@@ -62,19 +62,19 @@
             <div class="navbar align-self-center d-flex">
                 
              
-                <a *ngIf="isLoggedIn" class="nav-icon position-relative text-decoration-none" href="#" aria-label="Košarica" [routerLink]="'/cart'">
+                <a *ngIf="isLoggedIn" class="nav-icon position-relative text-decoration-none" href="#" aria-label="Košarica" matTooltip="Cart" [routerLink]="'/cart'">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{productsCount}}</span>
                 </a>
-                <a *ngIf="!isLoggedIn" class="nav-icon position-relative text-decoration-none" href="#" aria-label="Košarica" [routerLink]="'/guest-cart'">
+                <a *ngIf="!isLoggedIn" class="nav-icon position-relative text-decoration-none" href="#" aria-label="Košarica" matTooltip="Cart" [routerLink]="'/guest-cart'">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{guestCart.getGuestCartItemsCount()| async}}</span>
                 </a>
-                <a *ngIf="isLoggedIn" class="nav-icon position-relative text-decoration-none" aria-label="Profil" [routerLink]="'/profile'">
+                <a *ngIf="isLoggedIn" class="nav-icon position-relative text-decoration-none" aria-label="Profil" matTooltip="Profile" [routerLink]="'/profile'">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                 </a>
-                <a *ngIf="!isLoggedIn" class="nav-icon position-relative text-decoration-none" aria-label="Prijava" [routerLink]="'/login'">
+                <a *ngIf="!isLoggedIn" class="nav-icon position-relative text-decoration-none" aria-label="Prijava" matTooltip="Login" [routerLink]="'/login'">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                 </a>

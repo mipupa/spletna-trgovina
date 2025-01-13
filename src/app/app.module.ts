@@ -32,6 +32,8 @@ import { RatingDisplayComponent } from './rating-display/rating-display.componen
 import { RatingCreateComponent } from './rating-create/rating-create.component';
 import { OpinionsComponent } from './opinions/opinions.component';
 import { GuestCartComponent } from './guest-cart/guest-cart.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { GuestCartComponent } from './guest-cart/guest-cart.component';
     AngularFireAuthModule,
     GoogleMapsModule,
     NgxPaginationModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,

@@ -11,12 +11,16 @@ import { UserDataService } from '../services/user-data.service';
 export class HomeComponent {
   userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: '', postalCode : '', country : '', city: ''};
 
+  isLoggedIn: boolean = false;
+
   constructor(
     private auth: AuthService,
     private userService: UserDataService,
   )
    {
-    if(this.isLoggedIn()){
+    this.isLoggedIn = this.auth.isLoggedIn();
+
+    if(this.isLoggedIn){
     this.userService.getUserData(this.auth.authToken).subscribe((doc) => {
       if (this.auth.authToken && doc.exists) {
         this.userData = doc.data() as UserData; 
@@ -30,10 +34,6 @@ export class HomeComponent {
     })}
     ;
 
-  }
-  isLoggedIn():boolean
-  {
-    return this.auth.isLoggedIn()
   }
  
 }

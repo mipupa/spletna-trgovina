@@ -26,6 +26,7 @@ export class HeaderComponent {
   }
   logout() {
     this.auth.logout();
+    location.reload();
   }
 
   themes = ['dark-theme', 'light-theme'];
