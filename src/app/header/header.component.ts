@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { ThemeService } from '../services/theme.service';
 import { KosaricaService } from '../services/kosarica.service';
 import { GuestCartService } from '../services/guest-cart.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -18,8 +19,16 @@ export class HeaderComponent {
   productsCount: number = 0;
   guestProductsCount: number = 0;
 
-  constructor(private auth: AuthService, private themeService: ThemeService, private kosarica: KosaricaService, public guestCart: GuestCartService) { }
+  constructor(private auth: AuthService, private themeService: ThemeService, private kosarica: KosaricaService, public guestCart: GuestCartService, private translate: TranslateService) {
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+  }
 
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   get isLoggedIn(): boolean {
     return this.auth.isLoggedIn();
@@ -45,6 +54,11 @@ export class HeaderComponent {
     const storedTheme = localStorage.getItem('selectedTheme') || this.selectedTheme;
     this.selectedTheme = storedTheme;
     this.themeService.setTheme(this.selectedTheme);
+
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
 
     //metoda za prikazovanje števila izdelkov/produktov v košarici (ikona košarica)
     this.kosarica.getTrenutnoStanje().subscribe(count => { this.productsCount = count; })
