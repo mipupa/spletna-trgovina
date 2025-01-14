@@ -6,11 +6,13 @@
     <h1 class="h2 pb-4">Kategorije</h1>
     <ul class="list-unstyled templatemo-accordion ">
         <li class="pb-3" *ngFor="let category of categories">
-            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="">
+            <a class="button-style"  (click)="filterByCategory(category.CategoryID)">
                 {{ category.name }}
             </a>
-            
         </li>
+        <a class="button-style"  (click)="showAllProducts()">
+          Vsi izdelki
+      </a>
     </ul>
 </div>
  

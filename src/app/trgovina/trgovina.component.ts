@@ -43,6 +43,7 @@ export class TrgovinaComponent implements OnInit {
       this.products = data;
       this.filteredProducts = [...this.products];
       this.applyFilters();
+      this.updatePaginatedProducts();
     });
     this.filterProducts();   
   }
@@ -82,6 +83,19 @@ export class TrgovinaComponent implements OnInit {
     this.sortOrder = sortOrder;
     this.applyFilters();
   }
+
+  filterByCategory(categoryId: number): void {
+    this.filteredProducts = this.products.filter(product => product.CategoryID === categoryId);
+    this.currentPage = 1;
+    this.updatePaginatedProducts();
+  }
+
+  showAllProducts(): void {
+    this.filteredProducts = [...this.products];
+    this.currentPage = 1;
+    this.updatePaginatedProducts();
+  }
+
   applyFilters(): void {
     //vedno začni z celotnim seznamom produktov za pravilno filtriranje produktov
     this.filteredProducts = [...this.products];
