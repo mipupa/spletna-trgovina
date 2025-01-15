@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@angular/fire/auth'
-import { Router, RouterFeature } from '@angular/router';
-import { UserData } from '../model/user-data';
-import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, switchMap, of, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
  import { Subject } from 'rxjs';
+ import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ export class AuthService {
   public isLogged : boolean = false;
   private authState = new Subject<boolean>();
 
-  constructor(private http: HttpClient,private firestore : AngularFirestore, private fireauth: AngularFireAuth, private router: Router) {
+  constructor(private toastr: ToastrService, private http: HttpClient,private firestore : AngularFirestore, private fireauth: AngularFireAuth, private router: Router) {
     // Subscribe to changes in authentication state to update the currentUserUid
     this.fireauth.authState.subscribe((user) => {
       if (user) {
@@ -38,6 +37,7 @@ export class AuthService {
           this.isLogged = true;
           console.log("Is logged" + this.isLogged)
           console.log("User token:", this.authToken)
+          this.toastr.success("Prijava uspela.")
           this.router.navigate(['/home']);
         } else {
           this.isLogged = true;
@@ -65,7 +65,8 @@ export class AuthService {
         address: address,
         surname: surname};
       this.firestore.collection('User').doc(userUid).set(userData)
-      alert('Registration Successful');
+      this.toastr.success("Registracija uspela.")
+      //alert('Registration Successful');
       this.sendEmailForVarification(res.user);
       this.router.navigate(['/login']);
     }, err => {
@@ -91,7 +92,7 @@ export class AuthService {
       this.fireauth.sendPasswordResetEmail(email).then(() => {
         this.router.navigate(['/varify-email']);
       }, err => {
-        alert('Something went wrong');
+        this.toastr.success("Ups...Nekaj je šlo narobe.")
       })
   }
 
@@ -113,6 +114,7 @@ export class AuthService {
       localStorage.setItem('token',JSON.stringify(res.user?.uid));
 
     }, err => {
+
       alert(err.message);
     })
   }
