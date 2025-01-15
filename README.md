@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # RPO spletna trgovina
 
 Dobrodošli v aplikaciji Spletna trgovina! To je uporabniku prijazna platforma, zasnovana za zagotavljanje nemotene nakupovalne izkušnje za stranke. 
