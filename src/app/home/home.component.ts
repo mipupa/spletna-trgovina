@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserData } from '../model/user-data';
 import { AuthService } from '../services/auth.service';
 import { UserDataService } from '../services/user-data.service';
@@ -8,17 +8,18 @@ import { UserDataService } from '../services/user-data.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
   userData: UserData = {uid : '',name: '', phoneNumber: '', email: '', address: '', surname: '', postalCode : '', country : '', city: ''};
 
   isLoggedIn: boolean = false;
 
-  constructor(
-    private auth: AuthService,
-    private userService: UserDataService,
-  )
-   {
-    this.isLoggedIn = this.auth.isLoggedIn();
+  constructor(private auth: AuthService,private userService: UserDataService)
+   {}
+
+   ngOnInit(): void {
+     
+       this.isLoggedIn = this.auth.isLoggedIn();
 
     if(this.isLoggedIn){
     this.userService.getUserData(this.auth.authToken).subscribe((doc) => {

@@ -1,7 +1,4 @@
 
-
-
-
 <section class="bg-light">
 <div id="template-mo-zay-hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">      
     <div class="carousel-inner">        
@@ -13,7 +10,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 *ngIf="!isLoggedIn" class="text-success"><b>Dobrodošli gost</b></h1>
+                            <h1 *ngIf="!isLoggedIn" class="text-success welcome"><b>Dobrodošli gost</b></h1>
                             <h1 *ngIf="isLoggedIn" class="text-success"><b>Dobrodošli {{userData.name}} {{userData.surname}}</b></h1>
                             <h2>v vaši zimski destinaciji</h2>
                             <p>
@@ -52,17 +49,17 @@
     <div class="row">
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href=""><img src="assets/img/category_img_01.jpg" alt="Smuči" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Smuči</h5>
+            <h1 class="text-center mt-3 mb-3">Smuči</h1>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href=""><img src="assets/img/category_img_02.jpg" alt="Smučarski čevlji" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Smučarski čevlji</h5>
+            <h1 class="text-center mt-3 mb-3">Smučarski čevlji</h1>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href=""><img src="assets/img/category_img_03.jpg" alt="Dodatna oprema" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Dodatna oprema</h5>
+            <h1 class="text-center mt-3 mb-3">Dodatna oprema</h1>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
         </div>
     </div>
