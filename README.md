@@ -1,4 +1,3 @@
-
 # RPO projekt - spletna trgovina
 
 Dobrodošli v aplikaciji Spletna trgovina! To je uporabniku prijazna platforma, zasnovana za zagotavljanje nemotene nakupovalne izkušnje za stranke. 
@@ -12,11 +11,11 @@ Aplikacija uporabnikom omogoča brskanje po izdelkih, dodajanje artiklov v koša
 - **Nakupovalna košarica**: Dodajanje izdelkov v košarico, prilagajanje količine in ogled skupne vrednosti ter davka v realnem času.
 - **Izbira dostave in plačila**.
 - **Zgodovina vseh naročil**: Uporabniki si lahko ogledajo zgodovino svojih naročil/nakupov.
-- **Izbira prevoda spletne trgovine**: (3 možnosti: SI, EN, DE).
+- **Izbira prevoda spletne trgovine**: (3 možnosti: SI, EN, DE). //trenutno ni implementirano!
 - **Pregled poslovalnic**: Google Maps geolokacija in obvestila posamezne poslovalnice.
 - **Kontaktni obrazec**.
 - **Home Page/Vstopna stran**. spletne trgovine
-- 
+
 ## Uporabljene tehnologije
 Frontend: Bootstrap 5, HTML5, CSS3, JavaScript
 Framework: [Angular v17.1.0]
