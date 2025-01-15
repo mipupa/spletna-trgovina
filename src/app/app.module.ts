@@ -33,6 +33,13 @@ import { RatingCreateComponent } from './rating-create/rating-create.component';
 import { OpinionsComponent } from './opinions/opinions.component';
 import { GuestCartComponent } from './guest-cart/guest-cart.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -71,6 +78,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NgxPaginationModule,
     MatTooltipModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',
