@@ -51,5 +51,4 @@ Odpri v brskalniku: http://localhost:4200
 Free
 
 ## Kontakt
-For any inquiries, please reach out to:
 Email: /
