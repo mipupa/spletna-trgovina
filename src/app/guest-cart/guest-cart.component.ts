@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuestCartService } from '../services/guest-cart.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
 import { ChangeDetectorRef } from '@angular/core';
@@ -28,7 +30,7 @@ export class GuestCartComponent implements OnInit {
 
   
 
-  constructor(private cdr: ChangeDetectorRef, private guestCartService: GuestCartService,private productService: ProductService  ) {}
+  constructor(private cdr: ChangeDetectorRef, private guestCartService: GuestCartService,private productService: ProductService, private toastr: ToastrService, private route: Router  ) {}
 
   ngOnInit(): void {
     this.loadProducts(); // First, load the products
@@ -109,17 +111,28 @@ export class GuestCartComponent implements OnInit {
 
   // Submit the order
   public submitOrder(): void {
+
+    if (this.productsInCart && this.productsInCart.length > 0 ) {
+
     const orderData = {
       orderNumber: this.generateUniqueOrderNumber(),
       items: this.productsInCart,
       totalPrice: this.totalPrice + this.shippingCost,
       totalVAT: this.totalVAT,
       orderDate: new Date(),
-      shippingInfo: this.shippingInfo,
-
+      shippingInfo: this.shippingInfo,       
     };
 
-    console.log('Order submitted:', orderData);
+    // Prikaz toasterja s pozicioniranjem
+    this.toastr.success('Naročilo uspešno oddano!');
+    // Navigacija na stran naročil
+    setTimeout(() => {this.route.navigate(['/trgovina']); }, 1000); 
+
+  } 
+    else {
+      this.toastr.info('Košarica je prazna. Naročilo ni oddano!');
+    }
+    
     this.clearCart();
   }
 
