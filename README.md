@@ -1,5 +1,5 @@
 
-# RPO spletna trgovina
+# RPO projekt - spletna trgovina
 
 Dobrodošli v aplikaciji Spletna trgovina! To je uporabniku prijazna platforma, zasnovana za zagotavljanje nemotene nakupovalne izkušnje za stranke. 
 Aplikacija uporabnikom omogoča brskanje po izdelkih, dodajanje artiklov v košarico, izbiro dostave in plačila, podajanje mnenj in ocen artiklom ter zgodovino naročil za registrirane uporabnike.
@@ -30,10 +30,10 @@ Payment Gateway: Ni implementirano.
 
 ## Namestitev
 
-### Zahtevane prednameščena orodja
-1. Install [Node.js](https://nodejs.org/) (if using a JavaScript-based backend).
-2. Install [Git](https://git-scm.com/).
-3. Create Google Account and Firebase as databaset.
+### Zahtevana prednameščena orodja
+1. Namesti [Node.js](https://nodejs.org/) (if using a JavaScript-based backend).
+2. Namesti [Git](https://git-scm.com/).
+3. Ustvari Google račun, ustvari API ključe za Google zemljevide in Firebase za podatkovno bazo.
 
 ### Koraki za lokalno namestitev aplikacije
 
@@ -48,10 +48,9 @@ Zaženi aplikacijo:
 npm start / ng s --open
 Odpri v brskalniku: http://localhost:4200
 
-## License
+## Licenca
 Free
 
 ## Kontakt
 For any inquiries, please reach out to:
-
 Email: /
