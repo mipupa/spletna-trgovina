@@ -10,13 +10,11 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 *ngIf="!isLoggedIn" class="text-success welcome"><b>Dobrodošli gost</b></h1>
-                            <h1 *ngIf="isLoggedIn" class="text-success welcome"><b>Dobrodošli {{userData.name}} {{userData.surname}}</b></h1>
-                            <h2>v vaši zimski destinaciji</h2>
+                            <h1 *ngIf="!isLoggedIn" class="text-success welcome"><b>{{ 'Dobrodosli_gost' | translate }}</b></h1>
+                            <h1 *ngIf="isLoggedIn" class="text-success welcome"><b>{{ 'Dobrodosli' | translate }} {{userData.name}} {{userData.surname}}</b></h1>
+                            <h2>{{ 'V_vasi' | translate }}</h2>
                             <p>
-                                Snow Motion ni le spletna trgovina, temveč tudi kraj, kjer zima zaživi. 
-                                Pri nas najdete vrhunsko smučarsko opremo in dodatke, ki vas bodo spremljali
-                                na vseh zasneženih dogodivščinah.
+                                {{ 'Snow_motion' | translate }}
                             </p>
                         </div>
                     </div>
@@ -38,29 +36,27 @@
     <div class="row text-center">
         <div class="col-lg-6 m-auto">
             
-            <h1>Kategorije meseca</h1>
+            <h1>{{ 'Kategorije_meseca' | translate }}</h1>
             <p>
-            Zima je pred vrati, in pri nas najdete vse, 
-            kar potrebujete za brezskrbne dni na snegu! Odkrijte široko ponudbo smuči, 
-            smučarskih čevljev, palic, čelad ter nepogrešljivih dodatkov za smučanje.
+                {{ 'Zima_pred_vrati' | translate }}
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_01.jpg" alt="Smuči" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">Smuči</h5>
-            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
+            <h5 class="text-center mt-3 mb-3">{{ 'Smuci' | translate }}</h5>
+            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_02.jpg" alt="Smučarski čevlji" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">Smučarski čevlji</h5>
-            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
+            <h5 class="text-center mt-3 mb-3">{{ 'Smucarski_cevlji' | translate }}</h5>
+            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_03.jpg" alt="Dodatna oprema" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">Dodatna oprema</h5>
-            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">V trgovino</a></p>
+            <h5 class="text-center mt-3 mb-3">{{ 'Dodatna_oprema' | translate }}</h5>
+            <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
     </div>
         </div>
@@ -72,9 +68,9 @@
     <div class="container py-5">
         <div class="row text-center">
             <div class="col-lg-6 m-auto">
-                <h1>Aktualno</h1>
+                <h1>{{ 'Aktualno' | translate }}</h1>
                 <p>
-                Preverite aktualne popuste in se opremite za novo sezono že danes!
+                    {{ 'Preverite_popuste' | translate }}
                 </p>
             </div>
         </div>
@@ -98,9 +94,9 @@
                         </ul>
                         <a href="" class="h2 text-decoration-none text-dark">Nordica Speedmachine 3</a>
                         <p class="card-text">
-                            Ne glede na teren ali pogoje, popolnoma nova Nordica Speedmachine 3 doseže vse, kar ponujajo gore.
+                            {{ 'Nordica' | translate }}.
                         </p>
-                        <p class="text-muted">Mnenja (24)</p>
+                        <p class="text-muted">{{ 'Mnenja' | translate }} (24)</p>
                     </div>
                 </div>
             </div>
@@ -122,9 +118,9 @@
                         </ul>
                         <a href="" class="h2 text-decoration-none text-dark">Lange Heated Ski Boot Bag</a>
                         <p class="card-text">
-                            Zmogljiva ogrevalna torba za škornje (120 V) na dirkališču svetovnega pokala ohranja tople in suhe škornje med vožnjo do letovišča.
+                            {{ 'Torba' | translate }}.
                         </p>
-                        <p class="text-muted">Mnenja (48)</p>
+                        <p class="text-muted">{{ 'Mnenja' | translate }} (48)</p>
                     </div>
                 </div>
             </div>
@@ -146,9 +142,9 @@
                         </ul>
                         <a class="h2 text-decoration-none text-dark">Rome Agent Snowboard</a>
                         <p class="card-text">
-                            Agent je prava dediščina Rima. Izdelan z občutkom za vožnjo kjerkoli.
+                            {{ 'Agent' | translate }}.
                         </p>
-                        <p class="text-muted">Mnenja (74)</p>
+                        <p class="text-muted">{{ 'Mnenja' | translate }} (74)</p>
                     </div>
                 </div>
             </div>
@@ -161,10 +157,9 @@
     <div class="container my-4">
         <div class="row text-center">
             <div class="col-lg-6 m-auto">
-                <h1>Sodelujemo tudi s priznanimi znamkami</h1>
+                <h1>{{ 'Sodelujemo' | translate }}</h1>
                 <p>
-                    Naša spletna trgovina vas spodbudi, da premikate meje svojih zmožnosti.
-                    Odkrijte opremo, ki vas bo navdušila, da dosežete višje nivoje na smučeh!
+                    {{ 'Vas_spodbudi' | translate }}
                 </p>
             </div>
             <div class="col-lg-9 m-auto tempaltemo-carousel">
