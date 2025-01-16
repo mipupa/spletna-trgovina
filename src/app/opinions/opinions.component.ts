@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, combineLatest, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Opinion {
   ProductID: number;
@@ -30,13 +31,27 @@ export class OpinionsComponent implements OnInit {
 
 
   
-  constructor(private fb: FormBuilder, private firestore: AngularFirestore, private toastr:ToastrService) {}
+  constructor(private fb: FormBuilder, private firestore: AngularFirestore, private toastr:ToastrService, private translate: TranslateService) {
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   ngOnInit(): void {
     // Inicializiraj obrazec
     this.opinionForm = this.fb.group({
       opinion: ['', [Validators.required, Validators.minLength(5)]],
     });
+
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
 
     // Preveri, če je uporabnik prijavljen
     const token = localStorage.getItem('token');

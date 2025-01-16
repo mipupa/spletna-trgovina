@@ -2,8 +2,8 @@
   <div class="container py-5">
     <div class="row text-center py-3">
       <div class="col-lg-6 m-auto">
-        <h1>Naše lokacije</h1>
-        <p>Preverite kje nas lahko najdete v Sloveniji!</p>
+        <h1>{{ 'Nase_lokacije' | translate }}</h1>
+        <p>{{ 'Kje_nas_najdete' | translate }}</p>
       </div>
     </div>
     <div class="row">
@@ -20,7 +20,7 @@
             <p class="card-text"></p>
             <ul class="list-inline">
               <li class="list-inline-item">
-                <h4>Vodja:</h4>
+                <h4>{{ 'Vodja' | translate }}:</h4>
               </li>
               <li class="list-inline-item">
                 <p>
@@ -31,7 +31,7 @@
 
             <ul class="list-inline">
               <li class="list-inline-item">
-                <h4>Kontakt:</h4>
+                <h4>{{ 'Kontakt' | translate }}:</h4>
               </li>
               <li class="list-inline-item">
                 <p>
@@ -41,7 +41,7 @@
             </ul>
             <ul class="list-inline">
               <li class="list-inline-item">
-                <h4>Odpiralni čas:</h4>
+                <h4>{{ 'Odpiralni_cas' | translate }}:</h4>
               </li>
               <li class="list-inline-item">
                 <p>
@@ -60,7 +60,7 @@
               </map-marker>
             </google-map>
             <div class="py-3">
-            <h6 class="text-dark">Obvestila:</h6>
+            <h6 class="text-dark">{{ 'Obvestila' | translate }}:</h6>
             </div>
             <div *ngIf="notifications[poslovalnica.BranchID].length > 0; else noNotifications">
               <ul class="list-inline">
@@ -72,7 +72,7 @@
               </li>
               </ul>
             </div>
-              <ng-template #noNotifications><span class="text-muted"><p>Ni obvestil.</p></span></ng-template> 
+              <ng-template #noNotifications><span class="text-muted"><p>{{ 'Ni_obvestil' | translate }}.</p></span></ng-template> 
 
           </div>          
         </div>

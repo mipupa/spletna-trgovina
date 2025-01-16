@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserData } from '../model/user-data';
 import { AuthService } from '../services/auth.service';
 import { UserDataService } from '../services/user-data.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-customer-profile',
@@ -14,6 +15,7 @@ export class CustomerProfileComponent {
   constructor(
     private auth: AuthService,
     private userService: UserDataService,
+    private translate: TranslateService
   )
    {
     if(this.isLoggedIn()){
@@ -29,8 +31,26 @@ export class CustomerProfileComponent {
       }
     })}
     ;
- 
+
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+
   }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
+
+
+  ngOnInit(): void {
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
+    }
+
   isLoggedIn():boolean
   {
     return this.auth.isLoggedIn()

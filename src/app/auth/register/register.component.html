@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <form>
                         <div class="mb-3">
-                            <h4 class="text-dark text-muted">Registracija uporabnika</h4>
+                            <h4 class="text-dark text-muted">{{ 'Registracija_uporabnika' | translate }}</h4>
                         </div>
                         <div class="form-floating">
                           <input type="username" 
@@ -24,7 +24,7 @@
                           placeholder="Password"
                           name="password"
                           [(ngModel)]="password">
-                          <label for="floatingInput">Geslo</label>
+                          <label for="floatingInput">{{ 'Geslo' | translate }}</label>
                         </div>
                         <div class="form-floating">
                             <input type="username" 
@@ -33,7 +33,7 @@
                             placeholder="Username"
                             name="email"
                             [(ngModel)]="name">
-                            <label for="floatingInput">Ime</label>
+                            <label for="floatingInput">{{ 'Ime' | translate }}</label>
                           </div>
                           <div class="form-floating">
                             <input type="username" 
@@ -42,7 +42,7 @@
                             placeholder="Username"
                             name="email"
                             [(ngModel)]="surname">
-                            <label for="floatingInput">Priimek</label>
+                            <label for="floatingInput">{{ 'Priimek' | translate }}</label>
                           </div>
                           <div class="form-floating">
                             <input type="username" 
@@ -51,7 +51,7 @@
                             placeholder="Phone number"
                             name="email"
                             [(ngModel)]="phoneNumber">
-                            <label for="floatingInput">Telefon</label>
+                            <label for="floatingInput">{{ 'Telefon' | translate }}</label>
                           </div>
                           <div class="form-floating">
                             <input type="address" 
@@ -60,17 +60,17 @@
                             placeholder="Address"
                             name="address"
                             [(ngModel)]="address">
-                            <label for="floatingInput">Naslov</label>
+                            <label for="floatingInput">{{ 'Naslov' | translate }}</label>
                           </div>
                         <hr/>
                             <button class="w-100 btn btn-lg btn-success" 
                                 type="submit"
                                 (click)="register()">
-                                Registracija</button>
+                                {{ 'Registracija' | translate }}</button>
                                 <ul></ul>
                         <div class="row">
                             <div class="mb-3">
-                                <a href="/login" style="text-decoration: none;">Že imaš račun? <span class="text-danger">Prijava</span></a>
+                                <a href="/login" style="text-decoration: none;">{{ 'Imas_racun' | translate }}? <span class="text-danger">{{ 'Prijava' | translate }}</span></a>
                             </div>
                         </div>
                     </form>

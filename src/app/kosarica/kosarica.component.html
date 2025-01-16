@@ -5,8 +5,8 @@
         <div class="title">
           <div class="row">
             <div class="col">
-              <h2>Košarica</h2>
-              <span>Izdelkov:&nbsp;{{ productsInCart.length }}</span>
+              <h2>{{ 'Kosarica' | translate }}</h2>
+              <span>{{ 'Izdelkov' | translate }}:&nbsp;{{ productsInCart.length }}</span>
             </div>
             
           </div>
@@ -43,20 +43,20 @@
   
         <!-- Empty Cart Message -->
         <div *ngIf="!isLoading && productsInCart.length === 0" class="empty-cart">
-          <p>Košarica je prazna. Dodaj izdelke!</p>
+          <p>{{ 'Kosarica_prazna' | translate }}</p>
         </div>
   
         <div class="back-to-shop">
-          <a class="nav-link" href="" [routerLink]="['/trgovina']"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Nazaj v trgovino</a>
+          <a class="nav-link" href="" [routerLink]="['/trgovina']"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; {{ 'Nazaj_v_trgovino' | translate }}</a>
         </div>
       </div>
   
       <!-- Cart Summary -->
       <div class="col-md-4 summary">
-        <div><h5>Povzetek</h5></div>
+        <div><h5>{{ 'Povzetek' | translate }}</h5></div>
         <hr>
         <div class="row">
-          <div class="col" style="padding-left:0;">{{ productsInCart.length }} &nbsp;izdelkov</div>
+          <div class="col" style="padding-left:0;">{{ productsInCart.length }} &nbsp;{{ 'izdelkov' | translate }}</div>
           <div class="col text-right"> {{ formatCurrency(totalPrice) }}</div>
         </div>
 
@@ -65,27 +65,27 @@
             <div class="col">{{ formatCurrency(totalVAT)}}</div>
           </div>
   
-        <p class="spacing-top">Izberi način dostave:</p>
+        <p class="spacing-top">{{ 'Nacin_dostave' | translate }}:</p>
         <select id="dropdown" [(ngModel)]="shippingOption" (change)="onSelectionChange()" class="custom-select">
-          <option value="osebno">Osebni prevzem - {{formatCurrency(0)}}</option>
-          <option value="standard">Standardna dostava - {{formatCurrency(7)}}</option>
-          <option value="express">Hitra dostava - {{formatCurrency(15)}}</option>
+          <option value="osebno">{{ 'Osebni_prevzem' | translate }} - {{formatCurrency(0)}}</option>
+          <option value="standard">{{ 'Standardna_dostava' | translate }} - {{formatCurrency(7)}}</option>
+          <option value="express">{{ 'Hitra_dostava' | translate }} - {{formatCurrency(15)}}</option>
         </select>
-        <p class="spacing-top">Izberi način plačila:</p>
+        <p class="spacing-top">{{ 'Izberi_placilo' | translate }}:</p>
         <select id="dropdown" [(ngModel)]="paymentOption" (change)="onSelectionChange()" class="custom-select">
-          <option value="poPovzetju">Po povzetju</option>
-          <option value="predracun">Predračun</option>
-          <option value="creditCard">Kreditna kartica</option>
+          <option value="poPovzetju">{{ 'Po_povzetju' | translate }}</option>
+          <option value="predracun">{{ 'Predracun' | translate }}</option>
+          <option value="creditCard">{{ 'Kreditna_kartica' | translate }}</option>
           <option value="paypal">PayPal</option>
         </select>
     
           <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-            <div class="col"><h5><strong>Skupaj za plačilo:</strong></h5></div>
+            <div class="col"><h5><strong>{{ 'Skupaj_placilo' | translate }}:</strong></h5></div>
             <div class="col text-right"><h5><strong>{{formatCurrency(totalWithShipping)}}</strong></h5> <!-- Total with shipping + VAT -->
             </div>
           </div>
 
-          <button class="btn btn-success" (click)="submitOrder()">Oddaj naročilo</button>
+          <button class="btn btn-success" (click)="submitOrder()">{{ 'Oddaj_narocilo' | translate }}</button>
         </div>
     </div>
   

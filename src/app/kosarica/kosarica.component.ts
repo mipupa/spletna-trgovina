@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -29,11 +30,26 @@ export class KosaricaComponent {
 
   constructor(
     private auth: AuthService, private categoryService: CategoryService, private route: Router, private toastr: ToastrService,
-    private kosaricaService: KosaricaService
+    private kosaricaService: KosaricaService, private translate: TranslateService
   ) {
     this.fetchCartItems();
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
 
   }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
+
+  ngOnInit(): void {
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
+    }
 
   fetchCartItems(): void {
     this.isLoading = true;

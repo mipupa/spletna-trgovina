@@ -67,5 +67,50 @@
     "St_narocila": "Order number",
     "Datum_narocila": "Order date",
     "Skupni_znesek": "Total amount",
-    "Status_narocila": "Order status"
+    "Status_narocila": "Order status",
+
+    "Nase_lokacije": "Out locations",
+    "Kje_nas_najdete": "Check where you can find us in Slovenia",
+    "Vodja": "Leader",
+    "Odpiralni_cas": "Opening hours",
+    "Obvestila": "Notifications",
+    "Ni_obvestil": "No notifications",
+
+    "Mnenja_uporabnikov": "User reviews",
+    "Trenutno_ni_mnenj": "There are currently no reviews for this product",
+    "Mnenje_mora": "Review must be at least 5 characters long",
+    "Poslji": "Submit",
+    "Hvala_mnenje": "Thank you for your review",
+    "Oddaja_mnenja": "Log in to submit a review",
+
+    "Kontaktirajte_nas": "Contact us",
+    "Ime": "Name",
+    "Ime_obvezno": "Name is required",
+    "Email_obvezen": "E-mail is required",
+    "Email_nizapisan": "E-mail is not written correctly",
+    "Telefon": "Phone",
+    "Sporocilo": "Message",
+    "Sporocilo_obvezen": "Message is required",
+
+    "Nastavitve_profila": "Profile Settings",
+    "Priimek": "Last name",
+    "Mobilna_stevilka": "Mobile number",
+    "Drzava": "Country",
+    "Kraj": "Location",
+    "Shrani": "Save",
+
+    "Pozabljeno_geslo": "Forgot password",
+    "Poslji_email": "Send email",
+    "Nazaj_na_prijavo": "Back to Login",
+
+    "Prijava": "Login",
+    "Uporabnisko_ime": "Username",
+    "Geslo": "Password",
+    "Zelis_racun": "You want an account",
+    "Ustvari_racun": "Create account",
+    "Prijava_google": "Login with Google Account",
+
+    "Registracija_uporabnika": "User registration",
+    "Registracija": "Registration",
+    "Imas_racun": "Do you already have an account"
 }

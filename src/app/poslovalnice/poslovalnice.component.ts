@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PoslovalniceService} from '../services/poslovalnice.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-poslovalnice',
@@ -15,10 +16,23 @@ export class PoslovalniceComponent implements OnInit {
 
   ngOnInit() {
     this.pridobiPoslovalnice();
-    
+
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
   }
 
-  constructor(private poslovalniceService: PoslovalniceService) {}
+  constructor(private poslovalniceService: PoslovalniceService, private translate: TranslateService) {
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   pridobiPoslovalnice(): void {
     this.poslovalniceService.getBranches().subscribe({

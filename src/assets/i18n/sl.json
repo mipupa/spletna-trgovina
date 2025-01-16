@@ -66,6 +66,51 @@
     "St_narocila": "Št. naročila",
     "Datum_narocila": "Datum naročila",
     "Skupni_znesek": "Skupni znesek",
-    "Status_narocila": "Status naročila"
+    "Status_narocila": "Status naročila",
+
+    "Nase_lokacije": "Naše lokacije",
+    "Kje_nas_najdete": "Preverite kje nas lahko najdete v Sloveniji",
+    "Vodja": "Vodja",
+    "Odpiralni_cas": "Odpiralni čas",
+    "Obvestila": "Obvestila",
+    "Ni_obvestil": "Ni obvestil",
+    
+    "Mnenja_uporabnikov": "Mnenja uporabnikov",
+    "Trenutno_ni_mnenj": "Trenutno ni mnenj za ta izdelek",
+    "Mnenje_mora": "Mnenje mora biti vsaj 5 znakov dolgo",
+    "Poslji": "Pošlji",
+    "Hvala_mnenje": "Hvala za tvoje mnenje",
+    "Oddaja_mnenja": "Za oddajo mnenja se prijavi",
+
+    "Kontaktirajte_nas": "Kontaktirajte nas",
+    "Ime": "Ime",
+    "Ime_obvezno": "Ime je obvezen podatek",
+    "Email_obvezen": "E-mail je obvezen podatek",
+    "Email_nizapisan": "E-mail ni pravilno zapisan",
+    "Telefon": "Telefon",
+    "Sporocilo": "Sporočilo",
+    "Sporocilo_obvezen": "Sporočilo je obvezen podatek",
+
+    "Nastavitve_profila": "Nastavitve profila",
+    "Priimek": "Priimek",
+    "Mobilna_stevilka": "Mobilna številka",
+    "Drzava": "Država",
+    "Kraj": "Kraj",
+    "Shrani": "Shrani",
+
+    "Pozabljeno_geslo": "Pozabljeno geslo",
+    "Poslji_email": "Poslji email",
+    "Nazaj_na_prijavo": "Nazaj na prijavo",
+
+    "Prijava": "Prijava",
+    "Uporabnisko_ime": "Uporabniško ime",
+    "Geslo": "Geslo",
+    "Zelis_racun": "Želiš račun",
+    "Ustvari_racun": "Ustvari račun",
+    "Prijava_google": "Prijava z Google računom",
+
+    "Registracija_uporabnika": "Registracija uporabnika",
+    "Registracija": "Registracija",
+    "Imas_racun": "Že imaš račun"
 
 }

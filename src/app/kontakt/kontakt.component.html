@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                <h2 class="mb-4 display-5 text-center">Kontaktiraj nas</h2>
+                <h2 class="mb-4 display-5 text-center">{{ 'Kontaktirajte_nas' | translate }}</h2>
                 <p class="text-secondary mb-5 text-center"></p>
                 <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
             </div>
@@ -17,12 +17,12 @@
                     <form aria-label="form" #kontaktForm="ngForm" (ngSubmit)="onSubmit(kontaktForm)">
                         <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                             <div class="col-12">
-                                <label for="fullname" class="form-label">Ime <span class="text-danger">*</span></label>
+                                <label for="fullname" class="form-label">{{ 'Ime' | translate }} <span class="text-danger">*</span></label>
                                 <input aria-label="name" type="text" class="form-control" name="name" [(ngModel)]="form.name" required
                                     #name="ngModel">
                                 <div *ngIf="name.invalid && (name.dirty || name.touched)">
                                     <div *ngIf="name.errors?.['required']">
-                                        *Ime je obvezen podatek
+                                        *{{ 'Ime_obvezno' | translate }}
                                     </div>
 
                                 </div>
@@ -43,15 +43,15 @@
 
                                 <div *ngIf="email.errors && (email.dirty || email.touched)">
                                     <div *ngIf="email.errors?.['required']">
-                                        *E-mail je obvezen podatek
+                                        *{{ 'Email_obvezen' | translate }}
                                     </div>
                                     <div *ngIf="email.errors?.['email']">
-                                        *E-mail ni pravilno zapisan
+                                        *{{ 'Email_nizapisan' | translate }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <label aria-label="phone" for="phone" class="form-label">Telefon</label>
+                                <label aria-label="phone" for="phone" class="form-label">{{ 'Telefon' | translate }}</label>
                                 <div class="input-group">
                                     <span class="input-group-text">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -65,13 +65,13 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label aria-label="message" for="message" class="form-label">Sporočilo <span
+                                <label aria-label="message" for="message" class="form-label">{{ 'Sporocilo' | translate }} <span
                                         class="text-danger">*</span></label>
                                 <textarea aria-label="message" class="form-control" name="message" rows="4" [(ngModel)]="form.message"
                                     required #message="ngModel"></textarea>
                                 <div *ngIf="!message.value && (message.dirty || message.touched)">
                                     <div *ngIf="message.errors?.['required']">
-                                        *Sporočilo je obvezen podatek
+                                        *{{ 'Sporocilo_obvezen' | translate }}
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                             <div class="col-3 mx-auto">
                                 <div class="d-grid">
                                     <button class="btn btn-success btn-lg px-3" type="submit"
-                                        [disabled]="kontaktForm.invalid">Pošlji</button>
+                                        [disabled]="kontaktForm.invalid">{{ 'Poslji' | translate }}</button>
                                        
                                 </div>
                             </div>

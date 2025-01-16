@@ -1,6 +1,6 @@
 <div class="opinions-containermb-3">
     <!-- Prikaz vseh mnenj -->
-    <h5 class="text-center mt-3">Mnenja uporabnikov</h5>
+    <h5 class="text-center mt-3">{{ 'Mnenja_uporabnikov' | translate }}</h5>
     <div *ngIf="opinions.length > 0; else noOpinions">
       <div class="testimonial-text bg-white border rounded shadow-sm overflow-hidden" *ngFor="let opinion of opinions" class="card shadow-sm testimonial-card">
         <span>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <ng-template #noOpinions>
-      <p class="text-center">Trenutno ni mnenj za ta izdelek.</p>
+      <p class="text-center">{{ 'Trenutno_ni_mnenj' | translate }}.</p>
     </ng-template>
   
     <!-- Obrazec za oddajo mnenja -->
@@ -26,18 +26,18 @@
           placeholder="Napiši mnenje..."
         ></textarea>
         <div *ngIf="opinionForm.get('opinion')?.invalid && opinionForm.get('opinion')?.touched">
-          <small class="error">Mnenje mora biti vsaj 5 znakov dolgo.</small>
+          <small class="error">{{ 'Mnenje_mora' | translate }}.</small>
         </div>
-        <button class="button btn btn-success" type="submit" [disabled]="opinionForm.invalid">Pošlji</button>
+        <button class="button btn btn-success" type="submit" [disabled]="opinionForm.invalid">{{ 'Poslji' | translate }}</button>
       </form>
     </div>
   
     <ng-template #alreadySubmitted>
-      <p class="text-center mt-3">Hvala za tvoje mnenje!</p>
+      <p class="text-center mt-3">{{ 'Hvala_mnenje' | translate }}!</p>
     </ng-template>
     </div>
     <!-- Če uporabnik ni prijavljen -->
     <div *ngIf="!isLoggedIn">
-      <p class="text-center mt-3">Za oddajo mnenja se prijavi.</p>
+      <p class="text-center mt-3">{{ 'Oddaja_mnenja' | translate }}.</p>
     </div>
   </div>

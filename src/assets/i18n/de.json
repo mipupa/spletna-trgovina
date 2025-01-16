@@ -67,5 +67,50 @@
     "St_narocila": "Bestellnummer",
     "Datum_narocila": "Bestelldatum",
     "Skupni_znesek": "Gesamtbetrag",
-    "Status_narocila": "Bestellstatus"
+    "Status_narocila": "Bestellstatus",
+
+    "Nase_lokacije": "Unsere Standorte",
+    "Kje_nas_najdete": "Überprüfen Sie, wo Sie uns in Slowenien finden können",
+    "Vodja": "Anführer",
+    "Odpiralni_cas": "Öffnungszeiten",
+    "Obvestila": "Benachrichtigungen",
+    "Ni_obvestil": "Keine Benachrichtigungen",
+
+    "Mnenja_uporabnikov": "Benutzermeinungen",
+    "Trenutno_ni_mnenj": "Derzeit liegen keine Bewertungen für dieses Produkt vor",
+    "Mnenje_mora": "Die Meinung muss mindestens 5 Zeichen lang sein",
+    "Poslji": "Senden",
+    "Hvala_mnenje": "Vielen Dank für Ihre Meinung",
+    "Oddaja_mnenja": "Melden Sie sich an, um eine Meinung abzugeben",
+
+    "Kontaktirajte_nas": "Kontaktieren Sie uns",
+    "Ime": "Name",
+    "Ime_obvezno": "Name ist erforderlich",
+    "Email_obvezen": "E-mail ist erforderlich",
+    "Email_nizapisan": "E-mail ist nicht richtig geschrieben",
+    "Telefon": "Telefon",
+    "Sporocilo": "Nachricht",
+    "Sporocilo_obvezen": "Nachricht ist erforderlich",
+
+    "Nastavitve_profila": "Profileinstellungen",
+    "Priimek": "Nachname",
+    "Mobilna_stevilka": "Mobilnummer",
+    "Drzava": "Land",
+    "Kraj": "Ort",
+    "Shrani": "Speichern",
+
+    "Pozabljeno_geslo": "Passwort vergessen",
+    "Poslji_email": "Senden email",
+    "Nazaj_na_prijavo": "Zurück zur Anmeldung",
+
+    "Prijava": "Anmelden",
+    "Uporabnisko_ime": "Benutzername",
+    "Geslo": "Passwort",
+    "Zelis_racun": "Sie möchten ein Konto",
+    "Ustvari_racun": "Konto erstellen",
+    "Prijava_google": "Mit Google-Konto anmelden",
+
+    "Registracija_uporabnika": "Benutzerregistrierung",
+    "Registracija": "Registrierung",
+    "Imas_racun": "Sie haben bereits ein Konto"
 }
