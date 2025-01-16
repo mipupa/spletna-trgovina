@@ -1,58 +1,69 @@
-<div class="container rounded bg-white mt-5 mb-3">
-    <div class="card h-100 border-dark-subtle shadow-sm bg-light">
-  <div class="row">
-      <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{userData.name}}</span><span class="text-black-50">{{userData.email}}</span><span> </span></div>
-      </div>
-      <div class="col-md-5 border-right">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">{{ 'Nastavitve_profila' | translate }}</h4>
+<div class="container border rounded bg-light mt-5 mb-5 p-4 shadow-sm">
+    <div class="card border-0 bg-light">
+      <div class="row g-3">
+        <!-- Left column: Profile Image and Info -->
+        <div class="col-md-4 col-lg-3 text-center border-end">
+          <div class="d-flex flex-column align-items-center py-4">
+            <img
+              class="rounded-circle mb-3"
+              width="150"
+              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+              alt="User profile"
+            />
+            <h2 class="font-weight-bold mb-1">{{userData.name}}</h2>
+            <p class="text-muted">{{userData.email}}</p>
+          </div>
+        </div>
+        <!-- Right column: Form -->
+        <div class="col-md-8 col-lg-9">
+          <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h2>{{ 'Nastavitve_profila' | translate }}</h2>
+            </div>
+            <!-- Form Rows -->
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Ime' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.name" />
               </div>
-              <div class="row mt-2">
-                <div class="col-md-6">
-                    <label class="labels">{{ 'Ime' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="first name" [(ngModel)]="userData.name">
-                </div>
-                <div class="col-md-6">
-                    <label class="labels">{{ 'Priimek' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="surname" [(ngModel)]="userData.surname">
-                </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Priimek' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.surname" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Mobilna_stevilka' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.phoneNumber" />
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">{{ 'Naslov' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.address" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Postna_stevilka' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.postalCode" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Kraj' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.city" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ 'Drzava' | translate }}</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.country" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" [(ngModel)]="userData.email" />
+              </div>
             </div>
-            <div class="row mt-3">
-                <div class="col-md-12">
-                    <label class="labels">{{ 'Mobilna_stevilka' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="enter phone number" [(ngModel)]="userData.phoneNumber">
-                </div>
-                <div class="col-md-12">
-                    <label class="labels">{{ 'Naslov' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="enter address"  [(ngModel)]="userData.address">
-                </div>
-                <div class="col-md-12">
-                    <label class="labels">{{ 'Postna_stevilka' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="enter postal code" [(ngModel)]="userData.postalCode">
-                </div>
-                <div class="col-md-12">
-                    <label class="labels">Email</label>
-                    <input type="text" class="form-control" placeholder="enter email" [(ngModel)]="userData.email">
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6">
-                    <label class="labels">{{ 'Drzava' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="country" [(ngModel)]="userData.country">
-                </div>
-                <div class="col-md-6">
-                    <label class="labels">{{ 'Kraj' | translate }}</label>
-                    <input type="text" class="form-control" placeholder="state" [(ngModel)]="userData.city">
-                </div>
-            </div>
-            <div class="mt-5 text-center">
-                <button class="btn btn-primary profile-button" (click)="saveProfile()">{{ 'Shrani' | translate }}</button>
+            <!-- Save Button -->
+            <div class="mt-4">
+              <button class="btn btn-success px-4" (click)="saveProfile()">
+                {{ 'Shrani' | translate }}
+              </button>
             </div>
           </div>
-            <div class="py-5"></div>
         </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
+  

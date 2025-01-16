@@ -80,7 +80,7 @@ export class AuthService {
     this.fireauth.signOut().then(() => {
       this.authToken = ""; // Update authToken to empty string
       localStorage.removeItem('token');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/trgovina']);
     }, err => {
       alert(err.message);
     })
@@ -102,7 +102,7 @@ export class AuthService {
     user.sendEmailVerification().then((res : any) => {
       this.router.navigate(['/varify-email']);
     }, (err : any) => {
-      alert('Something went wrong. Not able to send mail to your email.')
+      alert('Ups...E-mail sporočila ni bilo mogoče poslati na vaš e-mail.')
     })
   }
 

@@ -4,6 +4,7 @@ import { ThemeService } from '../services/theme.service';
 import { KosaricaService } from '../services/kosarica.service';
 import { GuestCartService } from '../services/guest-cart.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class HeaderComponent {
   productsCount: number = 0;
   guestProductsCount: number = 0;
 
-  constructor(private auth: AuthService, private themeService: ThemeService, private kosarica: KosaricaService, public guestCart: GuestCartService, private translate: TranslateService) {
+  constructor(private auth: AuthService, private themeService: ThemeService, 
+    private kosarica: KosaricaService, public guestCart: GuestCartService, 
+    private translate: TranslateService, private toastr: ToastrService) {
     this.translate.setDefaultLang('sl');
     const browserLang = this.translate.getBrowserLang();
     this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
@@ -35,7 +38,8 @@ export class HeaderComponent {
   }
   logout() {
     this.auth.logout();
-    location.reload();
+    this.toastr.success('Uspešno ste se odjavili.')   
+    
   }
 
   themes = ['dark-theme', 'light-theme'];

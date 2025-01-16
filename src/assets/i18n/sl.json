@@ -24,10 +24,10 @@
     "Osebni_prevzem": "Osebni prevzem",
     "Standardna_dostava": "Standardna dostava",
     "Hitra_dostava": "Hitra dostava",
-    "Vnesite_naslov": "Vnesite dostavni naslov",
+    "Vnesite_naslov": "Naslov za dostavo",
     "Naslov": "Naslov",
     "Postna_stevilka": "Poštna številka",
-    "Mesto": "Mesto",
+    "Mesto": "Kraj",
     "Izberi_placilo": "Izberi način plačila",
     "Po_povzetju": "Po povzetju",
     "Predracun": "Predračun",
@@ -91,7 +91,7 @@
     "Sporocilo": "Sporočilo",
     "Sporocilo_obvezen": "Sporočilo je obvezen podatek",
 
-    "Nastavitve_profila": "Nastavitve profila",
+    "Nastavitve_profila": "Urejanje profila",
     "Priimek": "Priimek",
     "Mobilna_stevilka": "Mobilna številka",
     "Drzava": "Država",
@@ -99,7 +99,7 @@
     "Shrani": "Shrani",
 
     "Pozabljeno_geslo": "Pozabljeno geslo",
-    "Poslji_email": "Poslji email",
+    "Poslji_email": "Pošlji email",
     "Nazaj_na_prijavo": "Nazaj na prijavo",
 
     "Prijava": "Prijava",

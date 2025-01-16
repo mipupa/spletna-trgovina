@@ -53,7 +53,7 @@
       
           <!-- Cart Summary -->
           <div class="col-md-4 summary">
-            <div><h5>{{ 'Povzetek' | translate }}</h5></div>
+            <div><h2>{{ 'Povzetek' | translate }}</h2></div>
             <hr>
             <div class="row">
               <div class="col" style="padding-left:0;">{{ productsInCart.length }} &nbsp;{{ 'izdelkov' | translate }}</div>
@@ -73,7 +73,7 @@
              
             </select>
             <div *ngIf="displayForm" class="shipping-form mt-3">
-              <h6>{{ 'Vnesite_naslov' | translate }}</h6>
+              <h2>{{ 'Vnesite_naslov' | translate }}</h2>
               <form (ngSubmit)="submitShippingForm()">
                 <div class="form-group">
                   <label for="address">{{ 'Naslov' | translate }}</label>
@@ -89,7 +89,7 @@
                 </div>
               </form>
             </div>
-            <p class="spacing-top">{{ 'Izberi_placilo' | translate }}:</p>
+            <h2 class="spacing-top">{{ 'Izberi_placilo' | translate }}:</h2>
             <select id="dropdown" [(ngModel)]="paymentOption" (change)="onSelectionChange()" class="custom-select">
               <option value="poPovzetju">{{ 'Po_povzetju' | translate }}</option>
               <option value="predracun">{{ 'Predracun' | translate }}</option>
@@ -98,8 +98,8 @@
             </select>
         
               <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col"><h5><strong>{{'Skupaj_placilo' | translate}}:</strong></h5></div>
-                <div class="col text-right"><h5><strong>{{formatCurrency(totalWithShipping)}}</strong></h5> <!-- Total with shipping + VAT -->
+                <div class="col"><h2><strong>{{'Skupaj_placilo' | translate}}:</strong></h2></div>
+                <div class="col text-right"><h2><strong>{{formatCurrency(totalWithShipping)}}</strong></h2> <!-- Total with shipping + VAT -->
                 </div>
               </div>
     

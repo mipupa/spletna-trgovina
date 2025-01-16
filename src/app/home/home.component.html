@@ -1,9 +1,8 @@
 
-<section class="bg-light">
-<div id="template-mo-zay-hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">      
+<section class="">     
     <div class="carousel-inner">        
         <div class="carousel-item active">
-            <div class="container py-5">
+            <div class="container">
                 <div class="row">
                     <div class="mx-auto col-lg-6 order-lg-last">
                         <img src="assets/img/logo.png" alt="logo">
@@ -23,39 +22,33 @@
         </div> 
       
     </div>
-</div>
+
 </section>
 
 <!-- Izpostavljene kategorije -->
 
-
     <section class="bg-light">
-        <div class="py-5"></div>
-        <div class="py-5"></div>      
-        <div class="container py-3">
-    <div class="row text-center">
-        <div class="col-lg-6 m-auto">
-            
+                   
+        <div class="container pt-3">
+    <div class="row text-center text-success welcome">            
             <h1>{{ 'Kategorije_meseca' | translate }}</h1>
-            <p>
-                {{ 'Zima_pred_vrati' | translate }}
-            </p>
-        </div>
+            <div class="home-text">{{ 'Zima_pred_vrati' | translate }}</div>
+       
     </div>
     <div class="row">
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_01.jpg" alt="Smuči" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">{{ 'Smuci' | translate }}</h5>
+            <h2 class="text-center mt-3 mb-3">{{ 'Smuci' | translate }}</h2>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_02.jpg" alt="Smučarski čevlji" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">{{ 'Smucarski_cevlji' | translate }}</h5>
+            <h2 class="text-center mt-3 mb-3">{{ 'Smucarski_cevlji' | translate }}</h2>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
         <div class="col-12 col-md-4 p-5 mt-3">
             <a href="" [routerLink]="['/trgovina']"><img src="assets/img/category_img_03.jpg" alt="Dodatna oprema" class="rounded-circle img-fluid border img-hover"></a>
-            <h5 class="text-center mt-3 mb-3">{{ 'Dodatna_oprema' | translate }}</h5>
+            <h2 class="text-center mt-3 mb-3">{{ 'Dodatna_oprema' | translate }}</h2>
             <p class="text-center"><a class="btn btn-success" href="#" [routerLink]="['/trgovina']">{{ 'V_trgovino' | translate }}</a></p>
         </div>
     </div>
@@ -67,11 +60,9 @@
 <section class="bg-light">
     <div class="container py-5">
         <div class="row text-center">
-            <div class="col-lg-6 m-auto">
+            <div class="col-lg-6 m-auto text-success welcome">
                 <h1>{{ 'Aktualno' | translate }}</h1>
-                <p>
-                    {{ 'Preverite_popuste' | translate }}
-                </p>
+                <div class="home-text mb-5">{{ 'Preverite_popuste' | translate }}</div>
             </div>
         </div>
 
@@ -96,7 +87,7 @@
                         <p class="card-text">
                             {{ 'Nordica' | translate }}.
                         </p>
-                        <p class="text-muted">{{ 'Mnenja' | translate }} (24)</p>
+                      
                     </div>
                 </div>
             </div>
@@ -120,7 +111,7 @@
                         <p class="card-text">
                             {{ 'Torba' | translate }}.
                         </p>
-                        <p class="text-muted">{{ 'Mnenja' | translate }} (48)</p>
+                     
                     </div>
                 </div>
             </div>
@@ -142,9 +133,9 @@
                         </ul>
                         <a class="h2 text-decoration-none text-dark">Rome Agent Snowboard</a>
                         <p class="card-text">
-                            {{ 'Agent' | translate }}.
+                            {{ 'Agent Snowboard' | translate }}.
                         </p>
-                        <p class="text-muted">{{ 'Mnenja' | translate }} (74)</p>
+                       
                     </div>
                 </div>
             </div>
@@ -156,7 +147,7 @@
 <section class="bg-light py-3">
     <div class="container my-4">
         <div class="row text-center">
-            <div class="col-lg-6 m-auto">
+            <div class="col-lg-6 m-auto text-success welcome">
                 <h1>{{ 'Sodelujemo' | translate }}</h1>
                 <p>
                     {{ 'Vas_spodbudi' | translate }}
