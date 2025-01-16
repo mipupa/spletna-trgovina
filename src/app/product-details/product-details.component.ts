@@ -6,6 +6,8 @@ import { KosaricaService } from '../services/kosarica.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { GuestCartService } from '../services/guest-cart.service';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -26,7 +28,16 @@ export class ProductDetailsComponent {
   }
 
   constructor(  private authService: AuthService, private guestCartService: GuestCartService,
-    private router: Router, private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService) {}
+    private router: Router, private kosaricaService: KosaricaService, private route: ActivatedRoute, private productService: ProductService, private translate: TranslateService) {
+      this.translate.setDefaultLang('sl');
+      const browserLang = this.translate.getBrowserLang();
+      this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+    }
+  
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   /*ngOnInit(): void {
     // Pridobi `productId` iz URL-ja
@@ -63,6 +74,11 @@ export class ProductDetailsComponent {
       console.log('Pridobljen CategoryID:', this.categoryId);
       console.log('Pridobljen ProductID:', this.productId);
   
+      const savedLang = localStorage.getItem('language');
+      if(savedLang) {
+        this.translate.use(savedLang);
+      }
+
       // Naloži podatke za produkt
       if (this.productId) {
         await this.loadProductDetails(this.productId);

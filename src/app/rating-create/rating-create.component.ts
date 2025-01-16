@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-rating-create',
@@ -15,12 +16,26 @@ export class RatingCreateComponent {
   hasRated: boolean = false; // Ali je uporabnik že ocenil ta izdelek
   isLoggedIn: boolean = false; //Ali je logiran, sicer je gost
 
-  constructor(private firestore: AngularFirestore, private toastr: ToastrService) {}
+  constructor(private firestore: AngularFirestore, private toastr: ToastrService, private translate: TranslateService) {
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     this.isLoggedIn = !!token;
     
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
+
     this.checkIfRated();
   }
 

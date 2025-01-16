@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-guest-cart',
@@ -30,13 +31,22 @@ export class GuestCartComponent implements OnInit {
 
   
 
-  constructor(private cdr: ChangeDetectorRef, private guestCartService: GuestCartService,private productService: ProductService, private toastr: ToastrService, private route: Router  ) {}
+  constructor(private cdr: ChangeDetectorRef, private guestCartService: GuestCartService,private productService: ProductService, private toastr: ToastrService, private route: Router, private translate: TranslateService  ) {
+    this.translate.setDefaultLang('sl');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+  }
 
   ngOnInit(): void {
     this.loadProducts(); // First, load the products
     this.loadCart();
     this.calculateTotals();
     this.updateTotalWithShipping();
+
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
 
   }
 
@@ -50,6 +60,11 @@ export class GuestCartComponent implements OnInit {
         console.error('Error loading products:', error);
       }
     });
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
   }
   
   onSelectionChange() {

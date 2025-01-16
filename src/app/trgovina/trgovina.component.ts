@@ -8,6 +8,8 @@ import { KosaricaService } from '../services/kosarica.service'; // Uredi pot
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { GuestCartService } from '../services/guest-cart.service';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-trgovina',
   templateUrl: './trgovina.component.html',
@@ -20,13 +22,21 @@ export class TrgovinaComponent implements OnInit {
   sortOrder: string | null = null; //ni nastavljen privzeti filter
   searchTerm: string ='';
 
-  constructor( private authService: AuthService, private guestCartService: GuestCartService,
-    private router: Router, private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService, private kosaricaService: KosaricaService  ) { }
+  constructor( private authService: AuthService, private guestCartService: GuestCartService, private router: Router, private categoryService: CategoryService,private productService: ProductService, private searchService: SearchService, private kosaricaService: KosaricaService, private translate: TranslateService) { 
+      this.translate.setDefaultLang('sl');
+      const browserLang = this.translate.getBrowserLang();
+      this.translate.use(browserLang?.match(/en|de/) ? browserLang : 'sl');
+    }
 
   categories: Category[] = [];
   products: Product[] = [];
   filteredProducts: Product[] = [];
   paginatedProducts: Product[] = [];
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('language', lang);
+  }
 
   ngOnInit():void {
     //metoda samo za prvo kreiranje kategorij
@@ -35,6 +45,11 @@ export class TrgovinaComponent implements OnInit {
     this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });
+
+    const savedLang = localStorage.getItem('language');
+    if(savedLang) {
+      this.translate.use(savedLang);
+    }
 
     //metoda samo za prvo kreiranje produktov
     //this.productService.addProducts();

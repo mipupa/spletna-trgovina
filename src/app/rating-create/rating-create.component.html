@@ -1,10 +1,10 @@
 <div class="already-rated" *ngIf="(hasRated); else rateProduct;">
-  Ta izdelek si že ocenil.
+  {{ 'Si_ze_ocenil' | translate}}.
 </div>
 
 <ng-template #rateProduct>
 <div class="rating">
-  <p>Oceni izdelek:</p>
+  <p>{{ 'Oceni' | translate}}</p>
   <i 
     *ngFor="let star of stars; let i = index" 
     class="fa fa-star"

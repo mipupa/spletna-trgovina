@@ -1,15 +1,15 @@
 <div class="container py-5">  
-  <div class="text-center align-self-center"><h4>Moja naročila</h4></div>  
+  <div class="text-center align-self-center"><h4>{{ 'Moja_naroc' | translate }}</h4></div>  
     <div class="card h-100 border-dark-subtle shadow-sm bg-light">       
  <div *ngIf="orders$ | async as orders;">
     <table>
       <thead>
           <tr class="text-header">
-          <th>Št. naročila</th>
-          <th>Datum naročila</th>
-          <th>Skupni znesek</th>
-          <th>Izdelki</th>
-          <th>Status naročila</th>
+          <th>{{ 'St_narocila' | translate }}</th>
+          <th>{{ 'Datum_narocila' | translate }}</th>
+          <th>{{ 'Skupni_znesek' | translate }}</th>
+          <th>{{ 'Izdelki' | translate }}</th>
+          <th>{{ 'Status_narocila' | translate }}</th>
         </tr>
       </thead>
       <tbody style="font-size: medium;">

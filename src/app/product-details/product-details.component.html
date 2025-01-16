@@ -24,12 +24,12 @@
                             <app-rating-create [productId]="product.ProductID"></app-rating-create>
                           </p>
                       
-                        <h6>Opis:</h6>
+                        <h6>{{ 'Opis' | translate}}:</h6>
                         <ul class="list-unstyled pb-3">
                         <p>{{product.description}}</p>
                         
                         </ul>
-                        <h6>Specifikacije:</h6>
+                        <h6>{{ 'Specifikacije' | translate }}:</h6>
                         <ul class="list-unstyled pb-3">
                          <p>{{product.specification}}</p>
                         </ul>
@@ -37,11 +37,11 @@
                         <div class="row pb-3">
                               
                             <div class="col d-grid">
-                              <h6>Garancija:</h6>
+                              <h6>{{ 'Garancija' | translate }}:</h6>
                               <p>{{product.warranty}}</p>
                             </div>                              
                             <div>
-                             <a class="btn btn-success text-white mt-2" href="{{product.manufacturer_url}}">Uradna stran</a>
+                             <a class="btn btn-success text-white mt-2" href="{{product.manufacturer_url}}">{{ 'Uradna_stran' | translate}}</a>
                                                                
                             </div>
                         </div>                    
@@ -60,7 +60,7 @@
                             <div class="row pb-3">
                               
                                 <div class="col d-grid">
-                                    <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard" (click)="addToCartAndRedirect(product.ProductID)">V košarico</button>                                </div>
+                                    <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard" (click)="addToCartAndRedirect(product.ProductID)">{{ 'V_kosarico' | translate }}</button>                                </div>
                             </div>
                         </form>
 

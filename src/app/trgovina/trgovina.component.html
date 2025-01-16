@@ -3,7 +3,7 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-3">
-    <h1 class="h2 pb-4">Kategorije</h1>
+    <h1 class="h2 pb-4">{{ 'Kategorije' | translate }}</h1>
     <ul class="list-unstyled templatemo-accordion ">
         <li class="pb-3" *ngFor="let category of categories">
             <a class="button-style"  (click)="filterByCategory(category.CategoryID)">
@@ -11,7 +11,7 @@
             </a>
         </li>
         <a class="button-style"  (click)="showAllProducts()">
-          Vsi izdelki
+          {{ 'Vsi_izdelki' | translate }}
       </a>
     </ul>
 </div>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="input-group mb-2">
-            <input aria-label="text" type="text" id="searchtext" [(ngModel)]="searchTerm" (input)="onInputSearch()" class="form-control" placeholder="Išči izdelek...">
+            <input aria-label="text" type="text" id="searchtext" [(ngModel)]="searchTerm" (input)="onInputSearch()" class="form-control" placeholder="{{ 'Isci_izdelek' | translate }}...">
             
         </div>
           
@@ -30,13 +30,13 @@
           <div class="d-flex">
 
             <select #sortSelect (input)="onSortChange(sortSelect.value)" class="form-control" id="filter">
-              <option value="" disabled selected>Filter...</option>
-              <option value="asc">Cena naraščajoče</option>
-              <option value="desc">Cena padajoče</option>
+              <option value="" disabled selected>{{ 'Filter' | translate }}...</option>
+              <option value="asc">{{ 'Cena_nar' | translate }}</option>
+              <option value="desc">{{ 'Cena_pad' | translate }}</option>
               <option value="nameAsc">A-Z</option>
               <option value="nameDesc">Z-A</option>
-              <option value="inStock">Na voljo</option>
-              <option value="outOfStock">Ni na voljo</option>
+              <option value="inStock">{{ 'Na_voljo' | translate }}</option>
+              <option value="outOfStock">{{ 'Ni_na_voljo' | translate }}</option>
             </select>
 
           </div>

@@ -10,7 +10,7 @@
                 
          
             <div>
-                <a href="#"class="text-light text-decoration-none mx-2">Barvna shema:</a>
+                <a href="#"class="text-light text-decoration-none mx-2">{{ 'Barvna_shema' | translate }}</a>
                 <a style="padding-right:15px;" class="nav-icon d-none d-lg-inline" aria-label="Spremeni temo">
                 <button (click)="changeTheme()" aria-label="Spremeni temo">{{selectedTheme}}
                     <i class="fa fa-palette mr-2"></i>
@@ -40,22 +40,22 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/home']">{{ 'HOME' | translate }}</a>
+                        <a class="nav-link" href="" [routerLink]="['/home']">{{ 'Domov' | translate }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/trgovina']">Trgovina</a>
+                        <a class="nav-link" href="" [routerLink]="['/trgovina']">{{ 'Trgovina' | translate }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/poslovalnice']">Poslovalnice</a>
+                        <a class="nav-link" href="" [routerLink]="['/poslovalnice']">{{ 'Poslovalnice' | translate }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/about']">O nas</a>
+                        <a class="nav-link" href="" [routerLink]="['/about']">{{ 'O_nas' | translate }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/kontakt']">Kontakt</a>
+                        <a class="nav-link" href="" [routerLink]="['/kontakt']">{{ 'Kontakt' | translate }}</a>
                     </li>
                     <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link" href="" [routerLink]="['/narocila']">Moja naročila</a>
+                        <a class="nav-link" href="" [routerLink]="['/narocila']">{{ 'Moja_narocila' | translate }}</a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                 </a>
-                <button *ngIf="isLoggedIn" class="btn btn-outline-dark ms-3 rounded-pill px-4" (click)="logout()">Logout</button>
+                <button *ngIf="isLoggedIn" class="btn btn-outline-dark ms-3 rounded-pill px-4" (click)="logout()">{{ 'Odjava' | translate }}</button>
             </div>
         </div>
 
