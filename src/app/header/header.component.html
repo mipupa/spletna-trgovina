@@ -17,9 +17,9 @@
                 </button>
                 </a>
                 
-                <a (click)="changeLanguage('sl')" class="text-light fi fi-{{countryCodeSI}} me-2" href="#" aria-label="SI" matTooltip="Slovenščina"> </a>
-                <a (click)="changeLanguage('en')" class="text-light fi fi-{{countryCodeGB}} me-2" href="#" aria-label="EN" matTooltip="English"> </a>
-                <a (click)="changeLanguage('de')" class="text-light fi fi-{{countryCodeDE}} me-2" href="#" aria-label="DE" matTooltip="Deutsch"> </a>
+                <a (click)="changeLanguage('sl')" class="text-light fi fi-{{countryCodeSI}} me-2" href="#" [routerLink]="['/trgovina']" aria-label="SI" matTooltip="Slovenščina"> </a>
+                <a (click)="changeLanguage('en')" class="text-light fi fi-{{countryCodeGB}} me-2" href="#" [routerLink]="['/trgovina']" aria-label="EN" matTooltip="English"> </a>
+                <a (click)="changeLanguage('de')" class="text-light fi fi-{{countryCodeDE}} me-2" href="#" [routerLink]="['/trgovina']" aria-label="DE" matTooltip="Deutsch"> </a>
                 
                 <a class="text-light" href="https://fb.com/" target="_blank" rel="sponsored" aria-label="facebook" matTooltip="Facebook"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                 <a class="text-light" href="https://www.instagram.com/" target="_blank" aria-label="instagram" matTooltip="Instagram"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
