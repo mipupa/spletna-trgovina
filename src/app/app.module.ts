@@ -72,7 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp({"projectId":"rpo-spletna-trgovina","appId":"1:676356888271:web:01d6a08b2fa5eda03bc9ba","storageBucket":"rpo-spletna-trgovina.firebasestorage.app","apiKey":"AIzaSyCAPwqWkHNqpPU6_gm5cGOADPCyhn9o0Wk","authDomain":"rpo-spletna-trgovina.firebaseapp.com","messagingSenderId":"676356888271","measurementId":"G-XST2720TW8"}),
+    AngularFireModule.initializeApp({"projectId":"rpo-spletna-trgovina","appId":"1:676356888271:web:01d6a08b2fa5eda03bc9ba","storageBucket":"rpo-spletna-trgovina.firebasestorage.app","apiKey":"your_firebase_API_key","authDomain":"rpo-spletna-trgovina.firebaseapp.com","messagingSenderId":"676356888271","measurementId":"G-XST2720TW8"}),
     AngularFireAuthModule,
     GoogleMapsModule,
     NgxPaginationModule,
